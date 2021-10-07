@@ -51,7 +51,7 @@ public class LuckyNumber {
         return guessTime;
     }
 
-    static void report(int totalGame, int totalGuessTime, int bestGame) { // Hàm report dùng để in báo cáo game, truyền dữ liệu số lượt chơi, số lượt đoán và lượt chơi tốt nhất vào
+    static void report(float totalGame, float totalGuessTime, int bestGame) { // Hàm report dùng để in báo cáo game, truyền dữ liệu số lượt chơi, số lượt đoán và lượt chơi tốt nhất vào
         clearscreen();
         sep();
         brand();
@@ -60,20 +60,21 @@ public class LuckyNumber {
         sep();
         System.out.println("So luot choi: " + totalGame); // In ra số lượt chơi
         System.out.println("So luot du doan: " + totalGuessTime); // In ra số lượt dự đoán
-        System.out.println("So luot du doan trung binh: " + (totalGuessTime / totalGame)); // In ra số lượt dự đoán trung bình, dùng công thức từ biến có sẵn
+        System.out.println("So luot du doan trung binh: " + ((float)(totalGuessTime / totalGame))); // In ra số lượt dự đoán trung bình, dùng công thức từ biến có sẵn
         System.out.println("So luot du doan tot nhat: " + bestGame); // In ra số lượt dự đoán/ chơi tốt nhất (bestGame)
         sep();
     }
 
     public static void main(String[] args) {
-        int guessTime = 0, totalGame = 0, totalGuessTime = 0, bestGame = Integer.MAX_VALUE;
+        int guessTime = 1 , bestGame = Integer.MAX_VALUE;
+        float totalGame = 0, totalGuessTime = 0;
         Scanner input = new Scanner(System.in); // Khởi tạo 1 object cho scanner tên input
         clearscreen();
         sep();
         brand();
         sep();
 
-        String playChoice = ""; // Khởi tạo biến playerChoice, sau này dùng lưu KQ người chơi chọn yes/no khi được hỏi chơi lại
+        String playChoice = "y"; // Khởi tạo biến playerChoice, sau này dùng lưu KQ người chơi chọn yes/no khi được hỏi chơi lại
 
         do {
             totalGame++; // Đầu tiên tăng tổng số lượt chơi
@@ -87,7 +88,7 @@ public class LuckyNumber {
 
             System.out.println("Ban co muon choi lai khong? [y/n]?"); // Hỏi người chơi muốn chơi lại không
             playChoice = input.nextLine(); 
-        } while (playChoice.equalsIgnoreCase("y") == true && playChoice.equalsIgnoreCase("yes") == true); // => vòng lặp chỉ thực thi khi người chơi chơi lại
+        } while (playChoice.equalsIgnoreCase("y") == true || playChoice.equalsIgnoreCase("yes") == true); // => vòng lặp chỉ thực thi khi người chơi chơi lại
 
         report(totalGame, totalGuessTime, bestGame); // Nếu không chơi lại sẽ báo cáo KQ
 
