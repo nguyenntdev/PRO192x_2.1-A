@@ -19,7 +19,7 @@ public class LuckyNumber {
 
     static int play() {
         int guessTime = 0; // Khởi tạo biến guessTime kiểu int có giá trị = 0
-
+    
         Scanner input = new Scanner(System.in); // Tạo 1 object scanner mới
         int randomNumber = (int) Math.floor(Math.random() * (max - 1 + 1) + 1); // Tạo số ngẫu nhiên dùng class Math.random()
         clearscreen();
@@ -58,10 +58,10 @@ public class LuckyNumber {
         sep();
         System.out.println("B A O   C A O   G A M E");
         sep();
-        System.out.println("So luot choi: " + totalGame); // In ra số lượt chơi
-        System.out.println("So luot du doan: " + totalGuessTime); // In ra số lượt dự đoán
+        System.out.println("So luot choi: " + (int)totalGame); // In ra số lượt chơi
+        System.out.println("So luot du doan: " + (int)totalGuessTime); // In ra số lượt dự đoán
         System.out.println("So luot du doan trung binh: " + ((float)(totalGuessTime / totalGame))); // In ra số lượt dự đoán trung bình, dùng công thức từ biến có sẵn
-        System.out.println("So luot du doan tot nhat: " + bestGame); // In ra số lượt dự đoán/ chơi tốt nhất (bestGame)
+        System.out.println("So luot du doan tot nhat: " + (int)bestGame); // In ra số lượt dự đoán/ chơi tốt nhất (bestGame)
         sep();
     }
 
