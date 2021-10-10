@@ -105,10 +105,10 @@ public class GradeStudent {
         float[] scores = new float[n];
         float[] max = new float[n];
         for (int i = 0; i < n; i++) {
-            System.out.println("Please enter the Assignment " + i + " score:");
+            System.out.println("Please enter the Assignment " + (i + 1) + " score:");
             scores[i] = input.nextFloat();
 
-            System.out.println("Please enter the Assignment " + i + " max score:");
+            System.out.println("Please enter the Assignment " + (i + 1) + " max score:");
             max[i] = input.nextFloat();
         }
 
@@ -118,7 +118,6 @@ public class GradeStudent {
             homeworkTotalScore += scores[i];
         }
 
-        
         return homeworkTotalScore;
     }
 
