@@ -72,7 +72,7 @@ public class GradeStudent {
         float finalTermScoreEarned = input.nextFloat();
         System.out.println("Were score shifted [y/n]?");
         String finalTermShiftedChoice = input.next();
-        
+
         float finalTermShiftedAmount = 0;
         if (finalTermShiftedChoice.equalsIgnoreCase("y")) {
             System.out.println("Please enter shifted amount: ");
@@ -83,7 +83,7 @@ public class GradeStudent {
         if (finalTermTotalScore > 100) {
             finalTermTotalScore = 100;
         }
-        float finalTermWeightedScore = (finalTermTotalScore / 100) * finalTermWeightScore ;
+        float finalTermWeightedScore = (finalTermTotalScore / 100) * finalTermWeightScore;
         System.out.println("Total score: " + finalTermTotalScore);
         System.out.println("Weighted score: " + finalTermWeightedScore);
 
@@ -107,19 +107,31 @@ public class GradeStudent {
         for (int i = 0; i < n; i++) {
             System.out.println("Please enter the Assignment " + i + " score:");
             scores[i] = input.nextFloat();
-            
+
             System.out.println("Please enter the Assignment " + i + " max score:");
             max[i] = input.nextFloat();
         }
 
-        return 0;
+        float homeworkTotalScore = 0;
+
+        for (int i = 0; i < n; i++) {
+            homeworkTotalScore += scores[i];
+        }
+
+        
+        return homeworkTotalScore;
     }
 
+    static void report(float midTermWeightedScore, float finalTermWeightedScore, float homeworkTotalScore) {
+        float grade = midTermWeightedScore + finalTermWeightedScore + homeworkTotalScore;
+        System.out.println("Your grade is " + grade);
+    }
 
     public static void main(String[] args) {
         intro();
         float midTermWeightedScore = midTerm();
         float finalTermWeightedScore = finalTerm();
-        homework();
+        float homeworkTotalScore = homework();
+        report(midTermWeightedScore, finalTermWeightedScore, homeworkTotalScore);
     }
 }
