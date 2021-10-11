@@ -79,7 +79,7 @@ public class GradeStudent {
             finalTermShiftedAmount = input.nextInt();
         }
         sep();
-        float finalTermTotalScore = (finalTermShiftedAmount + finalTermScoreEarned);
+        int finalTermTotalScore = (finalTermShiftedAmount + finalTermScoreEarned);
         if (finalTermTotalScore > 100) {
             finalTermTotalScore = 100;
         }
