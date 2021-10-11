@@ -128,20 +128,26 @@ public class GradeStudent {
             sectionsAttendedScore = 30;
         }
 
+        System.out.print("Section point: " + sectionsAttendedScore + "/30");
+        System.out.println("Total point: " + homeworkTotalScore);
+
         homeworkTotalScore = homeworkTotalScore + sectionsAttendedScore;
 
         float homeworkWeightedScore = (homeworkTotalScore / homeworkMaxScore) * homeworkWeightScore;
 
-        System.out.print("Weighted score: " + homeworkWeightedScore);
+        System.out.print("\nWeighted score: " + df.format(homeworkWeightedScore));
 
         return homeworkWeightedScore;
     }
 
     static void report(float midTermWeightedScore, float finalTermWeightedScore, float homeworkWeightedScore) {
+        DecimalFormat df = new DecimalFormat("#.#");
         float grade = midTermWeightedScore + finalTermWeightedScore + homeworkWeightedScore;
-        System.out.println("Your grade is " + Math.round(grade));
+        System.out.println("Your grade is " + df.format(grade));
         // TODO: overall percentage
         // TODO: min grade & GPA
+
+
     }
 
     public static void main(String[] args) {
