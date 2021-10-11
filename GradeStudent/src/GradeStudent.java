@@ -83,7 +83,7 @@ public class GradeStudent {
         if (finalTermTotalScore > 100) {
             finalTermTotalScore = 100;
         }
-        float finalTermWeightedScore = (((float)finalTermScoreEarned + finalTermShiftedAmount) / 100) * finalTermWeightScore;
+        float finalTermWeightedScore = (((float)finalTermTotalScore / 100) * finalTermWeightScore);
         System.out.println("Total points: " + (finalTermScoreEarned + finalTermShiftedAmount) + "/100");
         System.out.println("Weighted score: " + df.format(finalTermWeightedScore) + "/" + finalTermWeightScore);
 
