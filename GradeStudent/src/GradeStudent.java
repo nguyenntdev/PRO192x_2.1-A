@@ -89,15 +89,14 @@ public class GradeStudent {
             finalTermTotalScore = 100;
         }
 
-        float finalTermWeightedScore = (((float) finalTermScoreEarned + finalTermShiftedAmount) / 100) * finalTermWeightScore;
+        float finalTermWeightedScore = (((float) finalTermTotalScore) / 100) * finalTermWeightScore;
         System.out.println("Total points: "
-                + ((finalTermScoreEarned + finalTermShiftedAmount > 100) ? 100 : finalTermScoreEarned + finalTermShiftedAmount)
+                + ((finalTermTotalScore > 100) ? 100 : finalTermScoreEarned + finalTermShiftedAmount)
                 + "/100");
         if (finalTermWeightedScore > finalTermWeightScore) {
             finalTermWeightedScore = finalTermWeightScore;
         }
-        System.out.println("Weighted score: " + df.format((float)finalTermWeightedScore) + "/" + finalTermWeightScore);
-
+        System.out.format("Weighted score: %.1f/%d\n", finalTermWeightedScore, finalTermWeightScore);
         return finalTermWeightedScore;
     }
 
