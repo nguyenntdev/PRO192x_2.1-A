@@ -104,7 +104,7 @@ public class GradeStudent {
         System.out.println("H  O  M  E  W  O  R  K");
         sep();
         System.out.println("Please enter weight score: ");
-        float homeworkWeightScore = input.nextFloat();
+        int homeworkWeightScore = input.nextInt();
         System.out.println("Please enter number of homework: ");
         int n = input.nextInt();
         float[] scores = new float[n];
@@ -133,7 +133,7 @@ public class GradeStudent {
             sectionsAttendedScore = 30;
         }
 
-        System.out.print("Section point: " + sectionsAttendedScore + "/30");
+        System.out.print("Section point: " + sectionsAttendedScore + "/30\n");
 
         if (homeworkTotalScore > homeworkMaxScore) {
             homeworkTotalScore = homeworkMaxScore;
@@ -143,9 +143,11 @@ public class GradeStudent {
 
         homeworkTotalScore = homeworkTotalScore + sectionsAttendedScore;
 
-        float homeworkWeightedScore = (homeworkTotalScore / homeworkMaxScore) * homeworkWeightScore;
+        float homeworkWeightedScore = ((float) (homeworkTotalScore / homeworkMaxScore) * homeworkWeightScore);
 
-        System.out.print("\nWeighted score: " + df.format(homeworkWeightedScore) + "/" + homeworkWeightScore);
+        System.out.print("\nWeighted score: "
+                + df.format((homeworkWeightedScore > homeworkWeightScore) ? homeworkWeightScore : homeworkWeightedScore)
+                + "/" + homeworkWeightScore + "\n");
 
         return homeworkWeightedScore;
     }
