@@ -51,10 +51,10 @@ public class GradeStudent {
             midTermShiftedAmount = input.nextInt();
         }
         sep();
-        float midTermWeightedScore = (((float) midTermScoreEarned + midTermShiftedAmount) / 100) * midTermWeightScore;
-        System.out.println("Total points: "
-                + ((midTermScoreEarned + midTermShiftedAmount > 100) ? 100 : midTermScoreEarned + midTermShiftedAmount)
-                + "/100");
+        float midTermTotalScore = midTermScoreEarned + midTermShiftedAmount;
+        if (midTermTotalScore > 100) {midTermTotalScore = 100}
+        float midTermWeightedScore = (((float) midTermTotalScore) / 100) * midTermWeightScore;
+        System.out.println("Total points: " + midTermTotalScore + "/100");
         if (midTermWeightedScore > midTermWeightScore) {
             midTermWeightedScore = midTermWeightScore;
         }
@@ -84,15 +84,14 @@ public class GradeStudent {
             finalTermShiftedAmount = input.nextInt();
         }
         sep();
-        float finalTermTotalScore = ((float)(finalTermShiftedAmount + finalTermScoreEarned));
+        float finalTermTotalScore = ((float) (finalTermShiftedAmount + finalTermScoreEarned));
         if (finalTermTotalScore > 100) {
             finalTermTotalScore = 100;
         }
 
         float finalTermWeightedScore = (((float) finalTermTotalScore) / 100) * finalTermWeightScore;
         System.out.println("Total points: "
-                + ((finalTermTotalScore > 100) ? 100 : finalTermScoreEarned + finalTermShiftedAmount)
-                + "/100");
+                + ((finalTermTotalScore > 100) ? 100 : finalTermScoreEarned + finalTermShiftedAmount) + "/100");
         if (finalTermWeightedScore > finalTermWeightScore) {
             finalTermWeightedScore = finalTermWeightScore;
         }
