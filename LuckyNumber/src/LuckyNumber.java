@@ -1,5 +1,6 @@
 
 import java.util.Scanner;
+import java.text.*;
 
 public class LuckyNumber {
     public static final int max = 100; // Định nghĩa hằng số max cho random
@@ -59,6 +60,8 @@ public class LuckyNumber {
     static void report(float totalGame, float totalGuessTime, int bestGame) { // Hàm report dùng để in báo cáo game,
                                                                               // truyền dữ liệu số lượt chơi, số lượt
                                                                               // đoán và lượt chơi tốt nhất vào
+        DecimalFormat df = new DecimalFormat("#.#");
+
         clearscreen();
         sep();
         brand();
@@ -67,10 +70,15 @@ public class LuckyNumber {
         sep();
         System.out.println("So luot choi: " + (int) totalGame); // In ra số lượt chơi
         System.out.println("So luot du doan: " + (int) totalGuessTime); // In ra số lượt dự đoán
-        System.out.println("So luot du doan trung binh: " + Math.round((float) (totalGuessTime / totalGame))); // In ra số lượt dự
-                                                                                                     // đoán trung bình,
-                                                                                                     // dùng công thức
-                                                                                                     // từ biến có sẵn
+        System.out
+                .println("So luot du doan trung binh: " + df.format((float) ((totalGuessTime / totalGame) * 10 / 10))); // In
+                                                                                                                        // ra
+                                                                                                                        // số
+                                                                                                                        // lượt
+                                                                                                                        // dự
+        // đoán trung bình,
+        // dùng công thức
+        // từ biến có sẵn
         System.out.println("So luot du doan tot nhat: " + (int) bestGame); // In ra số lượt dự đoán/ chơi tốt nhất
                                                                            // (bestGame)
         sep();
