@@ -51,9 +51,9 @@ public class GradeStudent {
             midTermShiftedAmount = input.nextInt();
         }
         sep();
-        float midTermWeightedScore = (midTermScoreEarned + midTermShiftedAmount) * midTermWeightScore;
+        float midTermWeightedScore = (float)((midTermScoreEarned + midTermShiftedAmount) / 100) * midTermWeightScore;
         System.out.println("Total points: " + (midTermScoreEarned + midTermShiftedAmount) + "/100");
-        System.out.println("Weighted score: " + df.format(midTermWeightedScore) + "/100");
+        System.out.println("Weighted score: " + df.format(midTermWeightedScore) + "/" + midTermWeightScore);
 
         return midTermWeightedScore;
     }
