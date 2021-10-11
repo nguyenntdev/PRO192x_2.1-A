@@ -39,9 +39,9 @@ public class GradeStudent {
         System.out.println("M  I  D   T  E  R  M");
         sep();
         System.out.println("Please enter weight score: ");
-        float midTermWeightScore = input.nextFloat();
+        int midTermWeightScore = input.nextInt();
         System.out.println("Please enter score earned: ");
-        float midTermScoreEarned = input.nextFloat();
+        int midTermScoreEarned = input.nextInt();
         System.out.println("Were score shifted [y/n]?");
         String midTermShiftedChoice = input.next();
 
@@ -52,7 +52,7 @@ public class GradeStudent {
         }
         sep();
         float midTermWeightedScore = ((midTermScoreEarned + midTermShiftedAmount) / 100) * midTermWeightScore;
-        System.out.println("Total score: " + (midTermScoreEarned + midTermShiftedAmount));
+        System.out.println("Total points: " + (midTermScoreEarned + midTermShiftedAmount) + "/100");
         System.out.println("Weighted score: " + df.format(midTermWeightedScore));
 
         return midTermWeightedScore;
@@ -67,25 +67,25 @@ public class GradeStudent {
         System.out.println("F  I  N  A  L   T  E  R  M");
         sep();
         System.out.println("Please enter weight score: ");
-        float finalTermWeightScore = input.nextFloat();
+        int finalTermWeightScore = input.nextInt();
         System.out.println("Please enter score earned: ");
-        float finalTermScoreEarned = input.nextFloat();
+        int finalTermScoreEarned = input.nextInt();
         System.out.println("Were score shifted [y/n]?");
         String finalTermShiftedChoice = input.next();
 
-        float finalTermShiftedAmount = 0;
+        int finalTermShiftedAmount = 0;
         if (finalTermShiftedChoice.equalsIgnoreCase("y")) {
             System.out.println("Please enter shifted amount: ");
             finalTermShiftedAmount = input.nextInt();
         }
         sep();
-        float finalTermTotalScore = (finalTermShiftedAmount + finalTermScoreEarned);
+        int finalTermTotalScore = (finalTermShiftedAmount + finalTermScoreEarned);
         if (finalTermTotalScore > 100) {
             finalTermTotalScore = 100;
         }
         float finalTermWeightedScore = (finalTermTotalScore / 100) * finalTermWeightScore;
-        System.out.println("Total score: " + finalTermTotalScore);
-        System.out.println("Weighted score: " + finalTermWeightedScore);
+        System.out.println("Total points: " + finalTermTotalScore);
+        System.out.println("Weighted score: " + df.format(finalTermWeightedScore) + "/" + finalTermWeightScore);
 
         return finalTermWeightedScore;
     }
@@ -112,7 +112,7 @@ public class GradeStudent {
             max[i] = input.nextFloat();
         }
 
-        float homeworkTotalScore = 0, homeworkMaxScore = 0;
+        int homeworkTotalScore = 0, homeworkMaxScore = 0;
 
         for (int i = 0; i < n; i++) {
             homeworkTotalScore += scores[i];
@@ -129,13 +129,18 @@ public class GradeStudent {
         }
 
         System.out.print("Section point: " + sectionsAttendedScore + "/30");
-        System.out.println("Total point: " + homeworkTotalScore);
+
+        if (homeworkTotalScore > homeworkMaxScore) {
+            homeworkTotalScore = homeworkMaxScore;
+        }
+
+        System.out.println("Total points: " + homeworkTotalScore + "/" + homeworkMaxScore);
 
         homeworkTotalScore = homeworkTotalScore + sectionsAttendedScore;
 
         float homeworkWeightedScore = (homeworkTotalScore / homeworkMaxScore) * homeworkWeightScore;
 
-        System.out.print("\nWeighted score: " + df.format(homeworkWeightedScore));
+        System.out.print("\nWeighted score: " + df.format(homeworkWeightedScore) + "/" + homeworkWeightScore);
 
         return homeworkWeightedScore;
     }
