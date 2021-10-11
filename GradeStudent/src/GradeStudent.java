@@ -112,25 +112,43 @@ public class GradeStudent {
             max[i] = input.nextFloat();
         }
 
-        float homeworkTotalScore = 0;
+        float homeworkTotalScore = 0, homeworkMaxScore = 0;
 
         for (int i = 0; i < n; i++) {
             homeworkTotalScore += scores[i];
         }
 
-        return homeworkTotalScore;
+        for (int i = 0; i < n; i++) {
+            homeworkMaxScore += max[i];
+        }
+
+        System.out.print("Amount of sections attended: ");
+        int sectionsAttendedScore = (input.nextInt()) * 5;
+        if (sectionsAttendedScore > 30) {
+            sectionsAttendedScore = 30;
+        }
+
+        homeworkTotalScore = homeworkTotalScore + sectionsAttendedScore;
+
+        float homeworkWeightedScore = (homeworkTotalScore / homeworkMaxScore) * homeworkWeightScore;
+
+        System.out.print("Weighted score: " + homeworkWeightedScore);
+
+        return homeworkWeightedScore;
     }
 
-    static void report(float midTermWeightedScore, float finalTermWeightedScore, float homeworkTotalScore) {
-        float grade = midTermWeightedScore + finalTermWeightedScore + homeworkTotalScore;
-        System.out.println("Your grade is " + grade);
+    static void report(float midTermWeightedScore, float finalTermWeightedScore, float homeworkWeightedScore) {
+        float grade = midTermWeightedScore + finalTermWeightedScore + homeworkWeightedScore;
+        System.out.println("Your grade is " + Math.round(grade));
+        // TODO: overall percentage
+        // TODO: min grade & GPA
     }
 
     public static void main(String[] args) {
         intro();
         float midTermWeightedScore = midTerm();
         float finalTermWeightedScore = finalTerm();
-        float homeworkTotalScore = homework();
-        report(midTermWeightedScore, finalTermWeightedScore, homeworkTotalScore);
+        float homeworkWeightedScore = homework();
+        report(midTermWeightedScore, finalTermWeightedScore, homeworkWeightedScore);
     }
 }
