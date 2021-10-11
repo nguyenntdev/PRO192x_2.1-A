@@ -88,9 +88,9 @@ public class GradeStudent {
         if (finalTermTotalScore > 100) {
             finalTermTotalScore = 100;
         }
-        float finalTermWeightedScore = ((float)( finalTermTotalScore / 100) * finalTermWeightScore);
+        float finalTermWeightedScore = ((float) (finalTermTotalScore / 100) * finalTermWeightScore);
         System.out.println("Total points: " + finalTermTotalScore + "/100");
-        System.out.println("Weighted score: " + df.format((float)finalTermWeightedScore) + "/" + finalTermWeightScore);
+        System.out.println("Weighted score: " + df.format((float) finalTermWeightedScore) + "/" + finalTermWeightScore);
 
         return finalTermWeightedScore;
     }
@@ -112,8 +112,6 @@ public class GradeStudent {
         for (int i = 0; i < n; i++) {
             System.out.println("Please enter the Assignment " + (i + 1) + " score:");
             scores[i] = input.nextFloat();
-
-            System.out.println("Please enter the Assignment " + (i + 1) + " max score:");
             max[i] = input.nextFloat();
         }
 
@@ -139,9 +137,9 @@ public class GradeStudent {
             homeworkTotalScore = homeworkMaxScore;
         }
 
-        System.out.println("Total points: " + homeworkTotalScore + "/" + homeworkMaxScore);
-
         homeworkTotalScore = homeworkTotalScore + sectionsAttendedScore;
+
+        System.out.println("Total points: " + homeworkTotalScore + "/" + (homeworkMaxScore + sectionsAttendedScore));
 
         float homeworkWeightedScore = ((float) (homeworkTotalScore / homeworkMaxScore) * homeworkWeightScore);
 
