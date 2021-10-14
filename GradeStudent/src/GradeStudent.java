@@ -52,9 +52,11 @@ public class GradeStudent {
         }
         sep();
         float midTermTotalScore = midTermScoreEarned + midTermShiftedAmount;
-        if (midTermTotalScore > 100) {midTermTotalScore = 100;}
+        if (midTermTotalScore > 100) {
+            midTermTotalScore = 100;
+        }
         float midTermWeightedScore = (((float) midTermTotalScore) / 100) * midTermWeightScore;
-        System.out.println("Total points: " + ((int)midTermTotalScore) + "/100");
+        System.out.println("Total points: " + ((int) midTermTotalScore) + "/100");
         if (midTermWeightedScore > midTermWeightScore) {
             midTermWeightedScore = midTermWeightScore;
         }
@@ -90,10 +92,10 @@ public class GradeStudent {
         }
 
         float finalTermWeightedScore = (((float) finalTermTotalScore) / 100) * finalTermWeightScore;
-        System.out.println("Total points: " + ((int)finalTermTotalScore) + "/100");
+        System.out.println("Total points: " + ((int) finalTermTotalScore) + "/100");
         if (finalTermWeightedScore > finalTermWeightScore) {
             finalTermWeightedScore = finalTermWeightScore;
-        }
+        } // TODO: Weight score fix
         System.out.format("Weighted score: %.1f/%d\n", finalTermWeightedScore, finalTermWeightScore);
         return finalTermWeightedScore;
     }
@@ -141,10 +143,10 @@ public class GradeStudent {
         }
 
         homeworkTotalScore = homeworkTotalScore + sectionsAttendedScore;
+        homeworkMaxScore += 30;
+        System.out.println("Total points: " + homeworkTotalScore + "/" + homeworkMaxScore);
 
-        System.out.println("Total points: " + homeworkTotalScore + "/" + (homeworkMaxScore + 30));
-
-        float homeworkWeightedScore = ((float) (homeworkTotalScore / homeworkMaxScore) * homeworkWeightScore);
+        float homeworkWeightedScore = ( ((float)homeworkTotalScore / homeworkMaxScore) * homeworkWeightScore);
 
         System.out.print("\nWeighted score: "
                 + df.format((homeworkWeightedScore > homeworkWeightScore) ? homeworkWeightScore : homeworkWeightedScore)
@@ -159,6 +161,28 @@ public class GradeStudent {
         System.out.println("Your grade is " + df.format(grade));
         // TODO: overall percentage
         // TODO: min grade & GPA
+        float gpa = 0;
+        if (grade >= 85) {
+            gpa = 3;
+            System.out.print("Your grade will be at least " + gpa);
+        }
+
+        else if (grade >= 75 && grade < 85) {
+            gpa = 2;
+            System.out.print("Your grade will be at least " + gpa);
+        }
+
+        
+        if (grade >= 60 && grade < 75) {
+            gpa = 1;
+            System.out.print("Your grade will be at least " + gpa);
+        }
+
+        
+        if (grade < 60) {
+            gpa = 0;
+            System.out.print("Your grade will be at least " + gpa);
+        }
 
     }
 
