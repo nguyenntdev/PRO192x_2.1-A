@@ -154,6 +154,8 @@ public class GradeStudent {
             homeworkTotalScore += scores[i];
         }
 
+        if (homeworkTotalScore > 150) {homeworkTotalScore = 150;}
+
         for (int i = 0; i < n; i++) {
             homeworkMaxScore += max[i];
         }
