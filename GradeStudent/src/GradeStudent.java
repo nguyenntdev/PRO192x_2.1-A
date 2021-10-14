@@ -6,6 +6,9 @@ import java.text.*;
 * - write array start from 1
 */
 public class GradeStudent {
+    static int midTermWeightScore = 0;
+    static int finalTermWeightScore = 0;
+
     static void clrscr() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -38,8 +41,15 @@ public class GradeStudent {
         sep();
         System.out.println("M  I  D   T  E  R  M");
         sep();
+        do {
+
         System.out.println("Please enter weight score: ");
-        int midTermWeightScore = input.nextInt();
+        midTermWeightScore = input.nextInt();
+        if (midTermWeightScore > 100) {
+        System.out.print("Your weight score exceeded the limit. Please re-enter weight score.");
+        }
+
+        } while (midTermWeightScore > 100);
         System.out.println("Please enter score earned: ");
         int midTermScoreEarned = input.nextInt();
         System.out.println("Were score shifted [y/n]?");
@@ -73,8 +83,16 @@ public class GradeStudent {
         sep();
         System.out.println("F  I  N  A  L   T  E  R  M");
         sep();
-        System.out.println("Please enter weight score: ");
-        int finalTermWeightScore = input.nextInt();
+        do {
+            System.out.println("Please enter weight score: ");
+
+            finalTermWeightScore = input.nextInt();
+            if ((finalTermWeightScore + midTermWeightScore) > 100) {
+                System.out.print("Your weight score exceeded the limit. Please re-enter weight score.");
+                }
+    }while ((finalTermWeightScore + midTermWeightScore) > 100);
+
+
         System.out.println("Please enter score earned: ");
         int finalTermScoreEarned = input.nextInt();
         System.out.println("Were score shifted [y/n]?");
@@ -108,8 +126,18 @@ public class GradeStudent {
         sep();
         System.out.println("H  O  M  E  W  O  R  K");
         sep();
+        int homeworkWeightScore = 0;
+
+        do {
+
         System.out.println("Please enter weight score: ");
-        int homeworkWeightScore = input.nextInt();
+        
+        homeworkWeightScore = input.nextInt();
+
+            if ((finalTermWeightScore + homeworkWeightScore + midTermWeightScore) > 100) {
+                System.out.print("Your weight score exceeded the limit. Please re-enter weight score.");
+        }
+    } while ((finalTermWeightScore + homeworkWeightScore + midTermWeightScore) > 100);
         System.out.println("Please enter number of homework: ");
         int n = input.nextInt();
         float[] scores = new float[n];
