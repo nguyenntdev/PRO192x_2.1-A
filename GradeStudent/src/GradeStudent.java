@@ -90,7 +90,7 @@ public class GradeStudent {
         }
 
         float finalTermWeightedScore = (((float) finalTermTotalScore) / 100) * finalTermWeightScore;
-        System.out.println("Total points: " + finalTermTotalScore + "/100");
+        System.out.println("Total points: " + ((int)finalTermTotalScore) + "/100");
         if (finalTermWeightedScore > finalTermWeightScore) {
             finalTermWeightedScore = finalTermWeightScore;
         }
