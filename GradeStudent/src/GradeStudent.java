@@ -154,9 +154,7 @@ public class GradeStudent {
             homeworkTotalScore += scores[i];
         }
 
-        if (homeworkTotalScore > 150) {homeworkTotalScore = 150;}
-
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {  
             homeworkMaxScore += max[i];
         }
 
@@ -174,6 +172,12 @@ public class GradeStudent {
 
         homeworkTotalScore = homeworkTotalScore + sectionsAttendedScore;
         homeworkMaxScore += 30;
+
+        if (homeworkTotalScore > 150) {homeworkTotalScore = 150;}
+
+        if (homeworkMaxScore > 150) {homeworkMaxScore = 150;}
+
+
         System.out.println("Total points: " + homeworkTotalScore + "/" + homeworkMaxScore);
 
         float homeworkWeightedScore = ( ((float)homeworkTotalScore / homeworkMaxScore) * homeworkWeightScore);
