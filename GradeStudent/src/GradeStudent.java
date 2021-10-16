@@ -43,11 +43,11 @@ public class GradeStudent {
         sep();
         do {
 
-        System.out.println("Please enter weight score: ");
-        midTermWeightScore = input.nextInt();
-        if (midTermWeightScore > 100) {
-        System.out.print("Your weight score exceeded the limit. Please re-enter weight score.");
-        }
+            System.out.println("\nPlease enter weight score: \n");
+            midTermWeightScore = input.nextInt();
+            if (midTermWeightScore > 100) {
+                System.out.print("Your weight score exceeded the limit. Please re-enter weight score.");
+            }
 
         } while (midTermWeightScore > 100);
         System.out.println("Please enter score earned: ");
@@ -84,14 +84,13 @@ public class GradeStudent {
         System.out.println("F  I  N  A  L   T  E  R  M");
         sep();
         do {
-            System.out.println("Please enter weight score: ");
+            System.out.println("\nPlease enter weight score: \n");
 
             finalTermWeightScore = input.nextInt();
             if ((finalTermWeightScore + midTermWeightScore) > 100) {
                 System.out.print("Your weight score exceeded the limit. Please re-enter weight score.");
-                }
-    }while ((finalTermWeightScore + midTermWeightScore) > 100);
-
+            }
+        } while ((finalTermWeightScore + midTermWeightScore) > 100);
 
         System.out.println("Please enter score earned: ");
         int finalTermScoreEarned = input.nextInt();
@@ -130,14 +129,14 @@ public class GradeStudent {
 
         do {
 
-        System.out.println("Please enter weight score: ");
-        
-        homeworkWeightScore = input.nextInt();
+            System.out.println("Please enter weight score: ");
+
+            homeworkWeightScore = input.nextInt();
 
             if ((finalTermWeightScore + homeworkWeightScore + midTermWeightScore) > 100) {
                 System.out.print("Your weight score exceeded the limit. Please re-enter weight score.");
-        }
-    } while ((finalTermWeightScore + homeworkWeightScore + midTermWeightScore) > 100);
+            }
+        } while ((finalTermWeightScore + homeworkWeightScore + midTermWeightScore) > 100);
         System.out.println("Please enter number of homework: ");
         int n = input.nextInt();
         float[] scores = new float[n];
@@ -154,7 +153,7 @@ public class GradeStudent {
             homeworkTotalScore += scores[i];
         }
 
-        for (int i = 0; i < n; i++) {  
+        for (int i = 0; i < n; i++) {
             homeworkMaxScore += max[i];
         }
 
@@ -173,14 +172,17 @@ public class GradeStudent {
         homeworkTotalScore = homeworkTotalScore + sectionsAttendedScore;
         homeworkMaxScore += 30;
 
-        if (homeworkTotalScore > 150) {homeworkTotalScore = 150;}
+        if (homeworkTotalScore > 150) {
+            homeworkTotalScore = 150;
+        }
 
-        if (homeworkMaxScore > 150) {homeworkMaxScore = 150;}
-
+        if (homeworkMaxScore > 150) {
+            homeworkMaxScore = 150;
+        }
 
         System.out.println("Total points: " + homeworkTotalScore + "/" + homeworkMaxScore);
 
-        float homeworkWeightedScore = ( ((float)homeworkTotalScore / homeworkMaxScore) * homeworkWeightScore);
+        float homeworkWeightedScore = (((float) homeworkTotalScore / homeworkMaxScore) * homeworkWeightScore);
 
         System.out.print("\nWeighted score: "
                 + df.format((homeworkWeightedScore > homeworkWeightScore) ? homeworkWeightScore : homeworkWeightedScore)
@@ -206,13 +208,11 @@ public class GradeStudent {
             System.out.print("Your grade will be at least " + gpa);
         }
 
-        
         if (grade >= 60 && grade < 75) {
             gpa = 1;
             System.out.print("Your grade will be at least " + gpa);
         }
 
-        
         if (grade < 60) {
             gpa = 0;
             System.out.print("Your grade will be at least " + gpa);
