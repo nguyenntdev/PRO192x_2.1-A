@@ -9,11 +9,11 @@ public class LuckyNumber {
         System.out.println("=======================================");
     }
 
-    static void brand() {
+    static void brand() { 
         System.out.println("S   O    M   A   Y    M   A   N");
     }
 
-    static void clearscreen() {
+    static void clearscreen() { // Biến dùng để xoá màn hình dùng ký tự ASCII
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
@@ -85,8 +85,8 @@ public class LuckyNumber {
     }
 
     public static void main(String[] args) {
-        int guessTime = 1, bestGame = Integer.MAX_VALUE;
-        float totalGame = 0, totalGuessTime = 0;
+        int guessTime = 1, bestGame = Integer.MAX_VALUE; // Khỏi tạo guesstime có giá trị = 0, bestGame có giá trị lớn nhất của số kiểu int
+        float totalGame = 0, totalGuessTime = 0; // Khởi tạo biến totalGuessTime và totalGame kiểu float, đều = 0
         Scanner input = new Scanner(System.in); // Khởi tạo 1 object cho scanner tên input
         clearscreen();
         sep();
@@ -116,6 +116,6 @@ public class LuckyNumber {
 
         report(totalGame, totalGuessTime, bestGame); // Nếu không chơi lại sẽ báo cáo KQ
 
-        input.close(); // Đóng input
+        input.close(); // Đóng input tránh mem leak
     }
 }
