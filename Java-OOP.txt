@@ -1,25 +1,8 @@
-PRO192x_2.1-A notes
-1. Cấu trúc của 1 file Java:
-    - Tên class, phải trùng với tên file
-        + VD: public class Main {} (với file Main.java)
-    - Tên hàm main(), bắt buộc cần phải có trong mỗi chương trình
-        + VD: public static void main(String[] args) {} (cố định)
-    - helloWorld:
-        'public class helloWorld { d
-            public static void main(String[] args) {
-                System.out.println("Hello World!");
-            }
-        }'
+1. Class
+- 
 
-2. Chú thích
-    - Nếu chú thích 1 dòng thì cần // đầu dòng hoặc sau lệnh
-    - Nếu chú thích nhiều dòng thì thêm chú thích trong cặp dấu /**/
+2. Object
 
-3. Biến & Kiểu DL
-    - Các biến được khai báo theo định dạng: type variable = value;
-        + VD: int a = 10;
-    - Các biến thường dùng: int, float, char, boolean, double, String (lưu ý chữ S ghi hoa)
-    - Ép kiểu DL: dùng type variable = (castType) value;
-        + VD: double a = 9.78d
-              int b = (int) a;
-    
+3. Abstract class
+- Dùng khi muốn định nghĩa chức năng có thể dùng chung cho nhóm đối tượng có tính tương đồng.
+=> Ví dụ: các đối tượng có tính tương đồng ở đây là nhân viên và quản lý, 2 đối tượng này đều là nhân viên trong công ty, vì vậy nó sẽ có một số chức năng chung thì mình cần có lớp abtract để định nghĩa các chức năng dùng chung cho 2 đối tượng này
