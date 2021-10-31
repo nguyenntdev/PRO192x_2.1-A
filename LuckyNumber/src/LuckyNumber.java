@@ -1,3 +1,7 @@
+/* TODO
+- Đặt hàm rõ nghĩa
+- Ghi chú trước hám
+ */
 
 import java.util.Scanner;
 import java.text.*;
@@ -5,18 +9,22 @@ import java.text.*;
 public class LuckyNumber {
     public static final int max = 100; // Định nghĩa hằng số max cho random
 
-    static void sep() {
+    static void showSeperator() {
         System.out.println("=======================================");
     }
 
-    static void brand() { 
+    static void showBrand() {
         System.out.println("S   O    M   A   Y    M   A   N");
     }
 
-    static void clearscreen() { // Biến dùng để xoá màn hình dùng ký tự ASCII
+    static void clearScreen() { // Biến dùng để xoá màn hình dùng ký tự ASCII
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
+
+    /**
+     * 
+     */
 
     static int play() {
         int guessTime = 1; // Khởi tạo biến guessTime kiểu int có giá trị = 1
@@ -24,10 +32,10 @@ public class LuckyNumber {
         Scanner input = new Scanner(System.in); // Tạo 1 object scanner mới
         int randomNumber = (int) Math.floor(Math.random() * (max - 1 + 1) + 1); // Tạo số ngẫu nhiên dùng class
                                                                                 // Math.random()
-        clearscreen();
-        sep();
-        brand();
-        sep();
+        clearScreen();
+        showSeperator();
+        showBrand();
+        showSeperator();
         System.out.print("Xin vui long nhap so ban doan: "); // In ra thông báo
 
         int playerNumber = input.nextInt(); // Khởi tạo biến playerNumber (dùng để trữ số đoán) lưu trữ số dự đoán người
@@ -62,12 +70,12 @@ public class LuckyNumber {
                                                                               // đoán và lượt chơi tốt nhất vào
         DecimalFormat df = new DecimalFormat("#.#");
 
-        clearscreen();
-        sep();
-        brand();
-        sep();
+        clearScreen();
+        showSeperator();
+        showBrand();
+        showSeperator();
         System.out.println("B A O   C A O   G A M E");
-        sep();
+        showSeperator();
         System.out.println("So luot choi: " + (int) totalGame); // In ra số lượt chơi
         System.out.println("So luot du doan: " + (int) totalGuessTime); // In ra số lượt dự đoán
         System.out
@@ -81,20 +89,18 @@ public class LuckyNumber {
         // từ biến có sẵn
         System.out.println("So luot du doan tot nhat: " + (int) bestGame); // In ra số lượt dự đoán/ chơi tốt nhất
                                                                            // (bestGame)
-        sep();
+        showSeperator();
     }
 
     public static void main(String[] args) {
-        int guessTime = 1, bestGame = Integer.MAX_VALUE; // Khỏi tạo guesstime có giá trị = 0, bestGame có giá trị lớn nhất của số kiểu int
+        int guessTime = 1, bestGame = Integer.MAX_VALUE; // Khỏi tạo guesstime có giá trị = 0, bestGame có giá trị lớn
+                                                         // nhất của số kiểu int
         float totalGame = 0, totalGuessTime = 0; // Khởi tạo biến totalGuessTime và totalGame kiểu float, đều = 0
         Scanner input = new Scanner(System.in); // Khởi tạo 1 object cho scanner tên input
-        clearscreen();
-        sep();
-        brand();
-        sep();
-
-        String playChoice = "y"; // Khởi tạo biến playerChoice, sau này dùng lưu KQ người chơi chọn yes/no khi
-                                 // được hỏi chơi lại
+        clearScreen();
+        showSeperator();
+        showBrand();
+        showSeperator();
 
         do {
             totalGame++; // Đầu tiên tăng tổng số lượt chơi
@@ -104,7 +110,7 @@ public class LuckyNumber {
             }
             totalGuessTime += guessTime; // Thêm số lượt dự đoán vào tổng lượt dự đoán
 
-            sep();
+            showSeperator();
 
             System.out.println("Ban co muon choi lai khong? [y/n]?"); // Hỏi người chơi muốn chơi lại không
             playChoice = input.nextLine();
