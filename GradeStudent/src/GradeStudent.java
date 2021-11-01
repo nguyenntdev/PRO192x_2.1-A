@@ -152,6 +152,7 @@ public class GradeStudent {
         showSeperator();
 
         do {
+
             System.out.print("\nPlease enter weight score: ");
             finalTermWeightScore = input.nextInt();
 
