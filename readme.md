@@ -1,5 +1,7 @@
 <p align="center">
-    <img src="/img/FUNiX-logo.png" alt="FUNiX Logo" />
+    <a href="https://funix.edu.vn">
+        <img src="/img/FUNiX-logo.png" alt="FUNiX Logo" height="125%" />
+    </a>
 </p>
 
 ## PRO192X_2.1-A
