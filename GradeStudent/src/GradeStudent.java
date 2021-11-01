@@ -4,7 +4,7 @@ import java.text.*;
 
 /**
  * Assignment 2 - Nguyen Ngoc Thien - FX-10909 - 31/10/21
- * <p>
+ *
  * GradeStudent - chương trình giúp tính điểm trung bình, GPA
  * của từng bạn dựa trên dữ liệu đã cho. Chương trình có cấu
  * trúc như sau:
@@ -15,11 +15,11 @@ import java.text.*;
  * điểm chuyên cần,...v.v.
  * + report():         hàm dùng để tính và in điểm trung bình,
  * tổng điểm, GPA,...v.v.
- * <p>
+ *
  * + main():           gọi các hàm trên và gán KQ return
- * <p>
+ *
  * Trong đó có 3 hàm phụ để in thông tin, seperator...
- * <p>
+ *
  * Global:
  * + DecimalFormat dùng để định dạng số TP ở dạng x.y
  * + Scanner dùng để thu input từ người dùng
