@@ -1,3 +1,7 @@
+import java.util.*;
+import javax.swing.event.SwingPropertyChangeSupport;
+import java.text.*;
+
 /**
  * Assignment 2 - Nguyen Ngoc Thien - FX-10909 - 31/10/21
  * <p>
@@ -21,11 +25,7 @@
  * + Scanner dùng để thu input từ người dùng
  */
 
-import java.util.*;
 
-import javax.swing.event.SwingPropertyChangeSupport;
-
-import java.text.*;
 
 public class GradeStudent {
     static int midTermWeightScore = 0;
@@ -228,7 +228,7 @@ public class GradeStudent {
         System.out.println("H  O  M  E  W  O  R  K");
         showSeperator();
 
-        int homeworkWeightScore = 0;
+        int homeworkWeightScore;
 
         do {
 
@@ -326,28 +326,28 @@ public class GradeStudent {
         float grade = midTermWeightedScore + finalTermWeightedScore + homeworkWeightedScore;
         System.out.println("\nYour grade is " + df.format(grade));
 
-        float gpa = 0;
+        float gpa;
 
         if (grade >= 85) {
 
             gpa = 3;
             System.out.println("\nYour grade will be at least " + gpa);
 
-        } else if (grade >= 75 && grade < 85) {
+        } else if (grade >= 75) {
 
             gpa = 2;
             System.out.println("\nYour grade will be at least " + gpa);
 
         }
 
-        if (grade >= 60 && grade < 75) {
+        else if (grade >= 60) {
 
             gpa = 1;
             System.out.println("\nYour grade will be at least " + gpa);
 
         }
 
-        if (grade < 60) {
+        else {
 
             gpa = 0;
             System.out.println("\nYour grade will be at least " + gpa);
@@ -364,10 +364,10 @@ public class GradeStudent {
 
         showIntro();
 
-        float midTermWeightedScore = midTerm(); //gọi & gán giá trị trả về vào biến
-        float finalTermWeightedScore = finalTerm(); //gọi & gán giá trị trả về vào biến
-        float homeworkWeightedScore = homework(); //gọi & gán giá trị trả về vào biến
-        report(midTermWeightedScore, finalTermWeightedScore, homeworkWeightedScore); //gọi hàm report, nạp dl cần thiết
+        float midTermWeightedScore = midTerm();
+        float finalTermWeightedScore = finalTerm();
+        float homeworkWeightedScore = homework();
+        report(midTermWeightedScore, finalTermWeightedScore, homeworkWeightedScore);
 
     }
 }
