@@ -1,24 +1,24 @@
 /**
  * Assignment 2 - Nguyen Ngoc Thien - FX-10909 - 31/10/21
- *
+ * <p>
  * GradeStudent - chương trình giúp tính điểm trung bình, GPA
  * của từng bạn dựa trên dữ liệu đã cho. Chương trình có cấu
  * trúc như sau:
  * Gồm 5 hàm chính:
- *  + midTerm():        hàm dùng để nhập và tính điểm GK
- *  + finalTerm():      hàm dùng để nhập và tính điểm cuối kì
- *  + homework():       hàm dùng để tính điểm Assignments,
- *                      điểm chuyên cần,...v.v.
- *  + report():         hàm dùng để tính và in điểm trung bình,
- *                      tổng điểm, GPA,...v.v.
- *
- *  + main():           gọi các hàm trên và gán KQ return
- *
+ * + midTerm():        hàm dùng để nhập và tính điểm GK
+ * + finalTerm():      hàm dùng để nhập và tính điểm cuối kì
+ * + homework():       hàm dùng để tính điểm Assignments,
+ * điểm chuyên cần,...v.v.
+ * + report():         hàm dùng để tính và in điểm trung bình,
+ * tổng điểm, GPA,...v.v.
+ * <p>
+ * + main():           gọi các hàm trên và gán KQ return
+ * <p>
  * Trong đó có 3 hàm phụ để in thông tin, seperator...
- *
+ * <p>
  * Global:
- *  + DecimalFormat dùng để định dạng số TP ở dạng x.y
- *  + Scanner dùng để thu input từ người dùng
+ * + DecimalFormat dùng để định dạng số TP ở dạng x.y
+ * + Scanner dùng để thu input từ người dùng
  */
 
 import java.util.*;
@@ -114,7 +114,7 @@ public class GradeStudent {
 
         }
 
-        float midTermWeightedScore = (((float) midTermTotalScore) / 100) * midTermWeightScore;
+        float midTermWeightedScore = (midTermTotalScore / 100) * midTermWeightScore;
         System.out.println("\nTotal points: " + ((int) midTermTotalScore) + "/100");
 
         if (midTermWeightedScore > midTermWeightScore) {
@@ -148,7 +148,7 @@ public class GradeStudent {
         Scanner input = new Scanner(System.in);
 
         showSeperator();
-        System.out.println("F  I  N  A  L   T  E  R  M"); 
+        System.out.println("F  I  N  A  L   T  E  R  M");
         showSeperator();
 
         do {
@@ -188,7 +188,7 @@ public class GradeStudent {
 
         }
 
-        float finalTermWeightedScore = (((float) finalTermTotalScore) / 100) * finalTermWeightScore;
+        float finalTermWeightedScore = (finalTermTotalScore / 100) * finalTermWeightScore;
         System.out.println("\nTotal points: " + ((int) finalTermTotalScore) + "/100");
 
         if (finalTermWeightedScore > finalTermWeightScore) {
@@ -251,7 +251,7 @@ public class GradeStudent {
         for (int i = 0; i < n; i++) {
 
             System.out.print("\nPlease enter the Assignment " + (i + 1) + " score and max: ");
-            scores[i] = input.nextFloat(); 
+            scores[i] = input.nextFloat();
             max[i] = input.nextFloat();
 
         }
@@ -332,9 +332,7 @@ public class GradeStudent {
             gpa = 3;
             System.out.println("\nYour grade will be at least " + gpa);
 
-        }
-
-        else if (grade >= 75 && grade < 85) {
+        } else if (grade >= 75 && grade < 85) {
 
             gpa = 2;
             System.out.println("\nYour grade will be at least " + gpa);
@@ -374,7 +372,7 @@ public class GradeStudent {
 }
 
 /*
-* ==========================================
-* E N D    O F    F I L E
-* ==========================================
-*/
+ * ==========================================
+ * E N D    O F    F I L E !
+ * ==========================================
+ */
