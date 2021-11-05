@@ -1,2 +1,4 @@
-public interface ICalculator {
+interface ICalculator {
+    double calculateSalary();
+
 }
