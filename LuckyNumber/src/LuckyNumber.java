@@ -1,11 +1,29 @@
-/* TODO
-- Đặt hàm rõ nghĩa
-- Ghi chú trước hám
- */
-
 import java.util.Scanner;
 import java.text.*;
 
+/** Assignment 1 - LuckyNumber - Nguyen Ngoc Thien - FX10909
+* - Là game tìm ra số may mắn, người dùng đoán 1 số bất kỳ và
+* dựa trên thông báo ở màn hình là nhỏ hay lớn hơn để đoán.
+* - Cấu trúc file: gồm 3 hàm chính
+*   + Hàm play():   là game chính, in ra thông báo, xử lý game...
+*   + Hàm report(): báo cáo số lượt chơi, lượt chơi tốt nhất,
+*                   lượt chơi trung bình...v.v.
+*   + Hàm main():   gán giá trị hàm return và gọi hàm
+* */
+
+
+/*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* */
 public class LuckyNumber {
     public static final int max = 100; // Định nghĩa hằng số max cho random
 
@@ -79,7 +97,7 @@ public class LuckyNumber {
         System.out.println("So luot choi: " + (int) totalGame); // In ra số lượt chơi
         System.out.println("So luot du doan: " + (int) totalGuessTime); // In ra số lượt dự đoán
         System.out
-                .println("So luot du doan trung binh: " + df.format((float) ((totalGuessTime / totalGame) * 10 / 10))); // In
+                .println("So luot du doan trung binh: " + df.format(((totalGuessTime / totalGame) * 10 / 10))); // In
                                                                                                                         // ra
                                                                                                                         // số
                                                                                                                         // lượt
@@ -87,7 +105,7 @@ public class LuckyNumber {
         // đoán trung bình,
         // dùng công thức
         // từ biến có sẵn
-        System.out.println("So luot du doan tot nhat: " + (int) bestGame); // In ra số lượt dự đoán/ chơi tốt nhất
+        System.out.println("So luot du doan tot nhat: " + bestGame); // In ra số lượt dự đoán/ chơi tốt nhất
                                                                            // (bestGame)
         showSeperator();
     }
@@ -95,6 +113,7 @@ public class LuckyNumber {
     public static void main(String[] args) {
         int guessTime = 1, bestGame = Integer.MAX_VALUE; // Khỏi tạo guesstime có giá trị = 0, bestGame có giá trị lớn
                                                          // nhất của số kiểu int
+        String playChoice;
         float totalGame = 0, totalGuessTime = 0; // Khởi tạo biến totalGuessTime và totalGame kiểu float, đều = 0
         Scanner input = new Scanner(System.in); // Khởi tạo 1 object cho scanner tên input
         clearScreen();
@@ -114,7 +133,7 @@ public class LuckyNumber {
 
             System.out.println("Ban co muon choi lai khong? [y/n]?"); // Hỏi người chơi muốn chơi lại không
             playChoice = input.nextLine();
-        } while (playChoice.equalsIgnoreCase("y") == true || playChoice.equalsIgnoreCase("yes") == true); // => vòng lặp
+        } while (playChoice.equalsIgnoreCase("y") || playChoice.equalsIgnoreCase("yes")); // => vòng lặp
                                                                                                           // chỉ thực
                                                                                                           // thi khi
                                                                                                           // người chơi

@@ -243,7 +243,7 @@ public class GradeStudent {
 
         } while ((finalTermWeightScore + homeworkWeightScore + midTermWeightScore) > 100);
 
-        System.out.print("\nPlease enter number of assignment: ");
+        System.out.print("\nPlease enter number of assignments: ");
         int n = input.nextInt();
 
         float[] scores = new float[n];
