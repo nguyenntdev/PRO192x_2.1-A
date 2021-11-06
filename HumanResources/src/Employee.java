@@ -9,13 +9,11 @@ public class Employee extends Staff {
 
     @Override
     void displayInformation() {
-        System.out.println("Ten nhan vien: " + name);
-        System.out.println("Tuoi nhan vien: " + age);
-        System.out.println("Ma nhan vien: " + id);
-        System.out.println("Bo phan lam viec: " + department);
-        System.out.println("Ngay vao lam viec: " + entryDate);
-        System.out.println("So ngay nghi: " + vacationDate);
+        System.out.println("Ten nhan vien: " + this.name);
+        System.out.println("Tuoi nhan vien: " + this.age);
+        System.out.println("Ma nhan vien: " + this.id);
+        System.out.println("Bo phan lam viec: " + this.department);
+        System.out.println("Ngay vao lam viec: " + this.entryDate);
+        System.out.println("So ngay nghi: " + this.vacationDate);
     }
-
-
 }
