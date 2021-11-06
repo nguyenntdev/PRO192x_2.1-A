@@ -6,6 +6,7 @@ public class HumanResources {
         System.out.flush();
     }
 
+
     public static int featureMenu() {
         Scanner input = new Scanner(System.in);
         int choice;
@@ -35,6 +36,9 @@ public class HumanResources {
         return choice;
     }
 
+
+
+
     public static void main(String[] args) {
         int choice = featureMenu();
         switch (choice) {
@@ -44,5 +48,7 @@ public class HumanResources {
             default:
                 break;
         }
+
+
     }
 }
