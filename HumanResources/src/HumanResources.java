@@ -71,8 +71,11 @@ public class HumanResources {
     public static void showDepartment() {
         Collections.sort(departmentArr);
         for (int i = 0; i < departmentArr.size(); i++) {
-            if (departmentArr.get(i) != departmentArr.get(i-1)) {
-                System.out.println(departmentArr.get(i-1).toString());
+            if (i == 0) {
+                System.out.println(departmentArr.get(i).toString());
+            }
+            else if (departmentArr.get(i) != departmentArr.get(i-1)) {
+                System.out.println(departmentArr.get(i).toString());
             }
         }
     }
