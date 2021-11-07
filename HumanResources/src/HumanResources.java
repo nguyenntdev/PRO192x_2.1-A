@@ -106,8 +106,10 @@ public class HumanResources {
         do {
             choice = featureMenu();
             switch (choice) {
-                case 4 -> addEmployee();
                 case 1 -> showEmployee();
+                case 2 -> showDepartment();
+                case 3 -> showDepartmentEmployee();
+                case 4 -> addEmployee();
                 default -> {
                 }
             }
