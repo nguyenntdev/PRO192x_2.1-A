@@ -4,10 +4,15 @@ import java.util.*;
 
 public class HumanResources {
 
+    public static String id = "", name = "", department = "", entryDate = "";
+    public static int age = 0, vacationDate = 0;
+    public static double coefficientSalary = 0;
+
     public static int arrNumbers = 0;
     public static Scanner input = new Scanner(System.in);
 
-    public static ArrayList<Employee> employee = new ArrayList<Employee>(); // generic - kiểu mới
+    public static ArrayList<Employee> employeeArr = new ArrayList<Employee>(); // generic - kiểu mới
+
 
 
     public static void clearScreen() {
@@ -49,19 +54,20 @@ public class HumanResources {
 
         System.out.println("Xin vui long nhap thong tin nhan vien moi: ");
         System.out.print("Ten nhan vien: ");
-        employee.get(arrNumbers).name = input.nextLine();
+        name = input.next();
         System.out.println("Tuoi nhan vien: ");
-        employee.get(arrNumbers).age = input.nextInt();
+        age = input.nextInt();
         System.out.println("Ma nhan vien: ");
-        employee.get(arrNumbers).id = input.nextLine();
+        id = input.next();
         System.out.println("Bo phan lam viec: ");
-        employee.get(arrNumbers).department = input.nextLine();
+        department = input.next();
         System.out.println("Ngay vao lam viec [dd/mm/yyyy]: ");
-        employee.get(arrNumbers).entryDate = input.nextLine();
+        entryDate = input.next();
         System.out.println("So ngay nghi: ");
-        employee.get(arrNumbers).vacationDate = input.nextInt();
+        vacationDate = input.nextInt();
 
-        arrNumbers++;
+        Employee employee = new Employee(id, name, department, entryDate, age, vacationDate, coefficientSalary);
+
     }
 
 
