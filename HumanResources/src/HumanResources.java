@@ -60,9 +60,9 @@ public class HumanResources {
 
     public static void showDepartmentEmployee() {
         for (int i = 0; i < departmentArr.size(); i++) {
-            departmentArr.get(i);
+            System.out.println(departmentArr.get(i));
             for (int j = 0; j < staffArr.size(); j++) {
-                if(departmentArr.get(i).equals(staffArr.get(j))) {
+                if(departmentArr.get(i).toString().equals(staffArr.get(j).department.toString())) {
                     staffArr.get(j).displayInformation();
                 }
             }
