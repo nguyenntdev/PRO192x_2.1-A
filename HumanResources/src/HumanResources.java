@@ -7,6 +7,7 @@ public class HumanResources {
     public static int arrNumbers = 0, arrLength = 1;
     public static Scanner input = new Scanner(System.in);
 
+//    public static ArrayList<Employee> employee = new ArrayList<Employee>(); // generic - kiểu mới
 
     public static Employee[] employee = new Employee[arrLength];
 
