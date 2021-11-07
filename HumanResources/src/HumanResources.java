@@ -105,6 +105,7 @@ public class HumanResources {
         if (checkDepartmentIncrease == false) {
             System.out.print("Xin vui long nhap ma bo phan: ");
             departmentID = input.nextInt();
+            departmentObj = new Department(department, departmentID);
         }
 
 
@@ -115,7 +116,6 @@ public class HumanResources {
         vacationDate = input.nextInt();
 
         Employee employee = new Employee(id, name, department, entryDate, age, vacationDate, coefficientSalary);
-        departmentObj = new Department(department, departmentID);
 
         staffArr.add(employee);
         departmentArr.add(departmentObj);
