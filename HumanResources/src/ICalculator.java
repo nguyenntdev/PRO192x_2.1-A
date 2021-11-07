@@ -1,4 +1,5 @@
 interface ICalculator {
     double calculateSalary();
 
+    
 }

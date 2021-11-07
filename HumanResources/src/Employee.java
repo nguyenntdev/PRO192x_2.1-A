@@ -13,7 +13,7 @@ public class Employee extends Staff {
         System.out.println("Tuoi nhan vien: " + this.age);
         System.out.println("Ma nhan vien: " + this.id);
         System.out.println("Bo phan lam viec: " + this.department);
-        System.out.println("Ngay vao lam viec: " + this.entryDate);
+        System.out.println("Ngay vao lam viec [dd/mm/yyyy]: " + this.entryDate);
         System.out.println("So ngay nghi: " + this.vacationDate);
     }
 }

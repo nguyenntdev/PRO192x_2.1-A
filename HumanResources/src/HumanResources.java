@@ -1,7 +1,16 @@
-import java.util.Scanner;
+// Import class ngoài, tạo mảng
+import java.util.*;
 
 
 public class HumanResources {
+
+    public static int arrNumbers = 0;
+    public static Scanner input = new Scanner(System.in);
+
+//    public static ArrayList<Employee> employee = new ArrayList<Employee>(); // generic - kiểu mới
+
+    public static Employee[] employee = new Employee[] {};
+
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -9,7 +18,7 @@ public class HumanResources {
 
 
     public static int featureMenu() {
-        Scanner input = new Scanner(System.in);
+
         int choice;
 
         do {
@@ -37,21 +46,38 @@ public class HumanResources {
         return choice;
     }
 
-    public static void showEmployeeList() {
+    public static void addEmployee() {
 
+        System.out.println("Xin vui long nhap thong tin nhan vien moi: ");
+        System.out.print("Ten nhan vien: ");
+        employee[arrNumbers].name = input.nextLine();
+        System.out.println("Tuoi nhan vien: ");
+        employee[arrNumbers].age = input.nextInt();
+        System.out.println("Ma nhan vien: ");
+        employee[arrNumbers].id = input.nextLine();
+        System.out.println("Bo phan lam viec: ");
+        employee[arrNumbers].department = input.nextLine();
+        System.out.println("Ngay vao lam viec [dd/mm/yyyy]: ");
+        employee[arrNumbers].entryDate = input.nextLine();
+        System.out.println("So ngay nghi: ");
+        employee[arrNumbers].vacationDate = input.nextInt();
+
+        arrNumbers++;
     }
 
 
     public static void main(String[] args) {
-        int choice = featureMenu();
-        switch (choice) {
-            case 1:
-                break;
+        int choice;
+        do {
+            choice = featureMenu();
+            switch (choice) {
+                case 4:
+                    addEmployee();
+                    break;
 
-            default:
-                break;
-        }
-
-
+                default:
+                    break;
+            }
+        }while(choice != 8);
     }
 }
