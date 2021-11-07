@@ -1,6 +1,7 @@
 public class Department {
-    private String departmentName;
-    private int departmentEmployeesNumber, departmentID;
+    private final String departmentName;
+    private int departmentEmployeesNumber;
+    private final int departmentID;
 
     public Department(String i, int n) {
         departmentName = i;

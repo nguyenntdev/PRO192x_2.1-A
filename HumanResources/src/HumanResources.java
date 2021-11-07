@@ -1,5 +1,7 @@
 // Import class ngoài, tạo mảng
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class HumanResources {
@@ -62,7 +64,7 @@ public class HumanResources {
         for (int i = 0; i < departmentArr.size(); i++) {
             System.out.println(departmentArr.get(i));
             for (int j = 0; j < staffArr.size(); j++) {
-                if(departmentArr.get(i).toString().equals(staffArr.get(j).department.toString())) {
+                if(departmentArr.get(i).toString().equals(staffArr.get(j).department)) {
                     staffArr.get(j).displayInformation();
                 }
             }
@@ -82,8 +84,8 @@ public class HumanResources {
     }
 
     public static void addEmployee() {
-
         Department departmentObj = new Department(department, departmentID);
+
 
         System.out.println("Xin vui long nhap thong  tin nhan vien moi: ");
         System.out.print("Ten nhan vien: ");
