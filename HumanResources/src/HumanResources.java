@@ -59,22 +59,21 @@ public class HumanResources {
     }
 
     public static void showDepartmentEmployee() {
-        System.out.print("Xin vui long nhap ten bo phan: ");
-        String departmentName = input.nextLine();
-        for (int i = 0; i < staffArr.size(); i++) {
-            if(staffArr.get(i).department == departmentName) {
-                staffArr.get(i).displayInformation();
+        for (int i = 0; i < departmentArr.size(); i++) {
+            departmentArr.get(i);
+            for (int j = 0; j < staffArr.size(); j++) {
+                if(departmentArr.get(i).equals(staffArr.get(j))) {
+                    staffArr.get(j).displayInformation();
+                }
             }
         }
     }
 
     public static void showDepartment() {
         Collections.sort(departmentArr);
+        System.out.println(departmentArr.get(0).toString());
         for (int i = 0; i < departmentArr.size(); i++) {
-            if (i == 0) {
-                System.out.println(departmentArr.get(i).toString());
-            }
-            else if (departmentArr.get(i) != departmentArr.get(i-1)) {
+            if (departmentArr.get(i) != departmentArr.get(i-1)) {
                 System.out.println(departmentArr.get(i).toString());
             }
         }
