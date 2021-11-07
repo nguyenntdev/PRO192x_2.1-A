@@ -58,6 +58,16 @@ public class HumanResources {
 
     }
 
+    public static void showDepartmentEmployee() {
+        System.out.print("Xin vui long nhap ten bo phan: ");
+        String departmentName = input.nextLine();
+        for (int i = 0; i < staffArr.size(); i++) {
+            if(staffArr.get(i).department == departmentName) {
+                staffArr.get(i).displayInformation();
+            }
+        }
+    }
+
     public static void showDepartment() {
         Collections.sort(departmentArr);
         for (int i = 0; i < departmentArr.size(); i++) {
