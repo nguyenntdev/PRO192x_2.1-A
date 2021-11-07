@@ -4,12 +4,11 @@ import java.util.*;
 
 public class HumanResources {
 
-    public static int arrNumbers = 0;
+    public static int arrNumbers = 0, arrLength = 1;
     public static Scanner input = new Scanner(System.in);
 
-//    public static ArrayList<Employee> employee = new ArrayList<Employee>(); // generic - kiểu mới
 
-    public static Employee[] employee = new Employee[] {};
+    public static Employee[] employee = new Employee[arrLength];
 
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
@@ -63,6 +62,7 @@ public class HumanResources {
         employee[arrNumbers].vacationDate = input.nextInt();
 
         arrNumbers++;
+        arrLength++;
     }
 
 
@@ -71,12 +71,9 @@ public class HumanResources {
         do {
             choice = featureMenu();
             switch (choice) {
-                case 4:
-                    addEmployee();
-                    break;
-
-                default:
-                    break;
+                case 4 -> addEmployee();
+                default -> {
+                }
             }
         }while(choice != 8);
     }
