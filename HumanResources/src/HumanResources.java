@@ -148,7 +148,14 @@ public class HumanResources {
                 }
 
             case 1 -> {
+                System.out.print("Xin vui long nhap id nhan vien: ");
+                String staffID = input.nextLine();
 
+                for (int i = 0; i < staffArr.size(); i++) {
+                    if (staffID.equals(staffArr.get(i).id)) {
+                        staffArr.get(i).displayInformation();
+                    }
+                }
             }
 
         }
@@ -176,6 +183,7 @@ public class HumanResources {
                 case 5:
                     findEmployee();
                     break;
+
                 default:
                     System.out.println("Lua chon ban nhap khong hop le, xin vui long nhap lai!");
             }
