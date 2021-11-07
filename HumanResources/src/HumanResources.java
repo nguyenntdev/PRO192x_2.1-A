@@ -11,8 +11,8 @@ public class HumanResources {
     public static int arrNumbers = 0;
     public static Scanner input = new Scanner(System.in);
 
-    public static ArrayList<Employee> employeeArr = new ArrayList<Employee>(); // generic - kiểu mới
-
+    public static ArrayList<Staff> staffArr = new ArrayList<Staff>();
+    public static ArrayList<String> departmentArr = new ArrayList<String>();
 
 
     public static void clearScreen() {
@@ -50,9 +50,17 @@ public class HumanResources {
         return choice;
     }
 
+    public static void showEmployee() {
+        for (int i = 0; i < staffArr.size(); i++) {
+            staffArr.get(i).displayInformation();
+            System.out.println("\n");
+        }
+
+    }
+
     public static void addEmployee() {
 
-        System.out.println("Xin vui long nhap thong tin nhan vien moi: ");
+        System.out.println("Xin vui long nhap thong  tin nhan vien moi: ");
         System.out.print("Ten nhan vien: ");
         name = input.next();
         System.out.print("Tuoi nhan vien: ");
@@ -68,6 +76,9 @@ public class HumanResources {
 
         Employee employee = new Employee(id, name, department, entryDate, age, vacationDate, coefficientSalary);
 
+        staffArr.add(employee);
+        departmentArr.add(department);
+
     }
 
 
@@ -77,6 +88,7 @@ public class HumanResources {
             choice = featureMenu();
             switch (choice) {
                 case 4 -> addEmployee();
+                case 1 -> showEmployee();
                 default -> {
                 }
             }
