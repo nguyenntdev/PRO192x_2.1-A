@@ -62,7 +62,16 @@ public class HumanResources {
 
     public static void showDepartmentEmployee() {
         for (int i = 0; i < departmentArr.size(); i++) {
+            if (i == 0) {
+                System.out.println(departmentArr.get(0).getDepartmentName());
+            }
+            else if (departmentArr.get(i).getDepartmentName().equals(departmentArr.get(i-1).getDepartmentName())) {
+                continue;
+            }
+            if (i != 0) {
             System.out.println(departmentArr.get(i).getDepartmentName());
+            }
+
             for (int j = 0; j < staffArr.size(); j++) {
                 if(departmentArr.get(i).getDepartmentName().toString().equals(staffArr.get(j).department)) {
                     staffArr.get(j).displayInformation();
