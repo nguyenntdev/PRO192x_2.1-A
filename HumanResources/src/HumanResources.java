@@ -55,15 +55,15 @@ public class HumanResources {
         System.out.println("Xin vui long nhap thong tin nhan vien moi: ");
         System.out.print("Ten nhan vien: ");
         name = input.next();
-        System.out.println("Tuoi nhan vien: ");
+        System.out.print("Tuoi nhan vien: ");
         age = input.nextInt();
-        System.out.println("Ma nhan vien: ");
+        System.out.print("Ma nhan vien: ");
         id = input.next();
-        System.out.println("Bo phan lam viec: ");
+        System.out.print("Bo phan lam viec: ");
         department = input.next();
-        System.out.println("Ngay vao lam viec [dd/mm/yyyy]: ");
+        System.out.print("Ngay vao lam viec [dd/mm/yyyy]: ");
         entryDate = input.next();
-        System.out.println("So ngay nghi: ");
+        System.out.print("So ngay nghi: ");
         vacationDate = input.nextInt();
 
         Employee employee = new Employee(id, name, department, entryDate, age, vacationDate, coefficientSalary);
