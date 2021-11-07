@@ -111,12 +111,20 @@ public class HumanResources {
         do {
             choice = featureMenu();
             switch (choice) {
-                case 1 -> showEmployee();
-                case 2 -> showDepartment();
-                case 3 -> showDepartmentEmployee();
-                case 4 -> addEmployee();
-                default -> {
-                }
+                case 1:
+                    showEmployee();
+                    break;
+                case 2:
+                    showDepartment();
+                    break;
+                case 3:
+                    showDepartmentEmployee();
+                    break;
+                case 4:
+                    addEmployee();
+                    break;
+                default:
+                    System.out.println("Lua chon ban nhap khong hop le, xin vui long nhap lai!");
             }
         }while(choice != 8);
     }
