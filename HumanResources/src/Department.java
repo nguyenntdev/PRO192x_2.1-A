@@ -1,10 +1,13 @@
 public class Department {
-    private String departmentID, departmentName;
-    private int departmentEmployeesNumber;
+    private String departmentName;
+    private int departmentEmployeesNumber, departmentID;
 
-    Department(String i) {
+    public Department(String i, int n) {
         departmentName = i;
+        departmentID = n;
     }
+
+
 
     public String toString() {
         System.out.println("Ten bo phan: " +
@@ -19,6 +22,10 @@ public class Department {
 
     public String getDepartmentName() {
         return departmentName;
+    }
+
+    public void increaseEmployeesNumber() {
+        departmentEmployeesNumber++;
     }
 
 }

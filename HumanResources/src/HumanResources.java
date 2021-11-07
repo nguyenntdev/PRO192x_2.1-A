@@ -5,14 +5,14 @@ import java.util.*;
 public class HumanResources {
 
     public static String id = "", name = "", department = "", entryDate = "";
-    public static int age = 0, vacationDate = 0;
+    public static int age = 0, vacationDate = 0, departmentID = 0   ;
     public static double coefficientSalary = 0;
 
     public static int arrNumbers = 0;
     public static Scanner input = new Scanner(System.in);
 
     public static ArrayList<Staff> staffArr = new ArrayList<Staff>();
-    public static ArrayList<String> departmentArr = new ArrayList<String>();
+    public static ArrayList<Department> departmentArr = new ArrayList<Department>();
 
 
     public static void clearScreen() {
@@ -70,7 +70,6 @@ public class HumanResources {
     }
 
     public static void showDepartment() {
-        Collections.sort(departmentArr);
         System.out.println(departmentArr.get(0).toString());
         for (int i = 0; i < departmentArr.size(); i++) {
             if (i == 0) {
@@ -84,6 +83,8 @@ public class HumanResources {
 
     public static void addEmployee() {
 
+        Department departmentObj = new Department(department, departmentID);
+
         System.out.println("Xin vui long nhap thong  tin nhan vien moi: ");
         System.out.print("Ten nhan vien: ");
         name = input.next();
@@ -93,15 +94,31 @@ public class HumanResources {
         id = input.next();
         System.out.print("Bo phan lam viec: ");
         department = input.next();
+        boolean checkDepartmentIncrease = false;
+        for (int i = 0; i < departmentArr.size(); i++) {
+            if (departmentArr.get(i).getDepartmentName().equals(department)) {
+                departmentArr.get(i).increaseEmployeesNumber();
+                checkDepartmentIncrease = true;
+            }
+        }
+
+        if (checkDepartmentIncrease == false) {
+            System.out.print("Xin vui long nhap ma bo phan: ");
+            departmentID = input.nextInt();
+        }
+
+
+
         System.out.print("Ngay vao lam viec [dd/mm/yyyy]: ");
         entryDate = input.next();
         System.out.print("So ngay nghi: ");
         vacationDate = input.nextInt();
 
         Employee employee = new Employee(id, name, department, entryDate, age, vacationDate, coefficientSalary);
+        departmentObj = new Department(department, departmentID);
 
         staffArr.add(employee);
-        departmentArr.add(department);
+        departmentArr.add(departmentObj);
 
     }
 
