@@ -80,17 +80,16 @@ public class HumanResources {
         }
     }
 
-    public static void showDepartment() {
-        System.out.println(departmentArr.get(0).getDepartmentName().toString());
-        for (int i = 0; i < departmentArr.size(); i++) {
-            if (i == 0) {
-                System.out.println(departmentArr.get(0).getDepartmentName().toString());
-            }
-            if (!(departmentArr.get(i).equals(departmentArr.get(i-1))) && i > 0) {
-                System.out.println(departmentArr.get(i).getDepartmentName().toString());
+        public static void showDepartment() {
+            if (departmentArr.size() > 0){System.out.println(departmentArr.get(0).getDepartmentName().toString());}
+            for (int i = 1; i < departmentArr.size(); i++) {
+                if (!(departmentArr.get(i).getDepartmentName().equals(departmentArr.get(i-1).getDepartmentName()))) {
+                    System.out.println(departmentArr.get(i).getDepartmentName().toString());
+                }
             }
         }
-    }
+
+
 
     public static void addEmployee() {
         Department departmentObj = new Department(department, departmentID);
@@ -133,6 +132,28 @@ public class HumanResources {
 
     }
 
+    public static void findEmployee() {
+        System.out.println("Ban muon tim nhan vien theo ID hay ten?\n ID: 1\n Ten: 2");
+        int choice = input.nextInt();
+        switch (choice) {
+            case 2 ->
+                    { System.out.print("Xin vui long nhap ten nhan vien: ");
+                String staffName = input.nextLine();
+
+                for (int i = 0; i < staffArr.size(); i++) {
+                    if (staffName.equals(staffArr.get(i).name)) {
+                        staffArr.get(i).displayInformation();
+                    }
+                    }
+                }
+
+            case 1 -> {
+
+            }
+
+        }
+    }
+
 
     public static void main(String[] args) {
         int choice;
@@ -150,6 +171,10 @@ public class HumanResources {
                     break;
                 case 4:
                     addEmployee();
+                    break;
+
+                case 5:
+                    findEmployee();
                     break;
                 default:
                     System.out.println("Lua chon ban nhap khong hop le, xin vui long nhap lai!");
