@@ -4,12 +4,11 @@ import java.util.*;
 
 public class HumanResources {
 
-    public static int arrNumbers = 0, arrLength = 1;
+    public static int arrNumbers = 0;
     public static Scanner input = new Scanner(System.in);
 
-//    public static ArrayList<Employee> employee = new ArrayList<Employee>(); // generic - kiểu mới
+    public static ArrayList<Employee> employee = new ArrayList<Employee>(); // generic - kiểu mới
 
-    public static Employee[] employee = new Employee[arrLength];
 
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
@@ -50,20 +49,19 @@ public class HumanResources {
 
         System.out.println("Xin vui long nhap thong tin nhan vien moi: ");
         System.out.print("Ten nhan vien: ");
-        employee[arrNumbers].name = input.nextLine();
+        employee.get(arrNumbers).name = input.nextLine();
         System.out.println("Tuoi nhan vien: ");
-        employee[arrNumbers].age = input.nextInt();
+        employee.get(arrNumbers).age = input.nextInt();
         System.out.println("Ma nhan vien: ");
-        employee[arrNumbers].id = input.nextLine();
+        employee.get(arrNumbers).id = input.nextLine();
         System.out.println("Bo phan lam viec: ");
-        employee[arrNumbers].department = input.nextLine();
+        employee.get(arrNumbers).department = input.nextLine();
         System.out.println("Ngay vao lam viec [dd/mm/yyyy]: ");
-        employee[arrNumbers].entryDate = input.nextLine();
+        employee.get(arrNumbers).entryDate = input.nextLine();
         System.out.println("So ngay nghi: ");
-        employee[arrNumbers].vacationDate = input.nextInt();
+        employee.get(arrNumbers).vacationDate = input.nextInt();
 
         arrNumbers++;
-        arrLength++;
     }
 
 
