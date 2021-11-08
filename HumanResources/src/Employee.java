@@ -7,7 +7,7 @@ public class Employee extends Staff {
         return salary;
     }
 
-    Employee(String id2, String name2, String department2, String entryDate2, int age2, int vacationDate2, double coefficientSalary2) {
+    Employee(String id2, String name2, String department2, String entryDate2, int age2, int vacationDate2, double coefficientSalary2, int overtimeHours2) {
         id = id2;
         name = name2;
         department = department2;
@@ -15,6 +15,7 @@ public class Employee extends Staff {
         age = age2;
         vacationDate = vacationDate2;
         coefficientSalary = coefficientSalary2;
+        overtimeHours = overtimeHours2;
     }
 
     @Override
