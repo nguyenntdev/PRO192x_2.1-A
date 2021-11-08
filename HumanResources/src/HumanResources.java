@@ -1,17 +1,15 @@
 // Import class ngoài, tạo mảng
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 
 public class HumanResources {
 
-    public static final Scanner input = new Scanner(System.in);
+    public static final Scanner input = new Scanner(System.in).useLocale(Locale.US);
     public static final ArrayList<Staff> staffArr = new ArrayList<>();
     public static final ArrayList<Department> departmentArr = new ArrayList<>();
-    public static String id = "", name = "", department = "", entryDate = "";
-    public static int age = 0, vacationDate = 0, departmentID = 0, overtimeHours = 0;
-    public static double coefficientSalary = 0;
 
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
@@ -88,7 +86,11 @@ public class HumanResources {
     }
 
     public static void addManager() {
+        String id = "", name = "", department = "", entryDate = "";
+        int age = 0, vacationDate = 0, departmentID = 0, overtimeHours = 0;
+
         Department departmentObj = new Department(department, departmentID);
+        double coefficientSalary = 0.0;
 
         System.out.println("Xin vui long nhap thong tin quan ly moi: ");
         System.out.print("Ten quan ly: ");
@@ -138,7 +140,11 @@ public class HumanResources {
     }
 
     public static void addEmployee() {
+        String id = "", name = "", department = "", entryDate = "";
+        int age = 0, vacationDate = 0, departmentID = 0, overtimeHours = 0;
+
         Department departmentObj = new Department(department, departmentID);
+        double coefficientSalary = 0.0;
 
         System.out.println("Xin vui long nhap thong tin nhan vien moi: ");
         System.out.print("Ten nhan vien: ");
