@@ -1,11 +1,10 @@
 public class Employee extends Staff {
     private int overtimeHours;
-    private double Salary;
 
 
     public double calculateSalary(double coefficientSalary, int overtimeHours) {
-        Salary = (coefficientSalary * 3000000) + (overtimeHours * 200000);
-        return Salary;
+        double salary = (coefficientSalary * 3000000) + (overtimeHours * 200000);
+        return salary;
     }
 
     Employee(String id2, String name2, String department2, String entryDate2, int age2, int vacationDate2, double coefficientSalary2) {
