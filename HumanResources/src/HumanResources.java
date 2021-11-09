@@ -1,33 +1,39 @@
-/**
- * PRO192x_2.1-A_VN Assignment 2 -
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- * */
+/*
+  Assignment 2 - HumanResources - Nguyễn Ngọc Thiện - FX10909
+  - Là phần mềm quản lý nhân sự trong công ty, gồm 7 chức
+    năng chính:
+    1. Hiển thị danh sách nhân viên hiện có trong công ty
+    (Hàm showEmployee())
+    2. Hiển thị các bộ phận trong công ty
+    (Hàm showDepartment())
+    3. Hiển thị các nhân viên theo từng bộ phận
+    (Hàm showDepartmentEmployee())
+    4. Thêm nhân viên mới vào công ty (Hàm addNewPerson): bao gồm 2 loại
+       - Thêm nhân viên thông thường (Hàm addEmployee())
+       - Thêm nhân viên là cấp quản lý (có thêm chức vụ) (Hàm addManager())
+    5. Tìm kiếm thông tin nhân viên theo tên hoặc mã nhân viên
+       (Hàm findEmployee())
+    6. Hiển thị bảng lương của nhân viên toàn công ty
+       (Hàm showDecreaseSalary())
+    7. Hiển thị bảng lương của nhân viên theo thứ tự tăng dần
+       (Hàm showIncreaseSalary())
+
+  - Cấu trúc dự án gồm 6 file chính:
+    1. Department.java
+    2. Employee.java
+    3. ICalculator.java
+    4. Manager.java
+    5. Staff.java
+    6. HumanResources.java
+  */
 
 import java.util.*;
-
 
 public class HumanResources {
 
     public static final Scanner input = new Scanner(System.in).useLocale(Locale.US);
     public static final ArrayList<Staff> staffArr = new ArrayList<>();
     public static final ArrayList<Department> departmentArr = new ArrayList<>();
-    public static final ArrayList<Double> staffSalary = new ArrayList<>();
 
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
@@ -73,12 +79,7 @@ public class HumanResources {
     }
 
     public static void showDecreaseSalary() {
-        Collections.sort(staffArr, new Comparator<Staff>() {
-            @Override
-            public int compare(Staff staff1, Staff staff2) {
-                return (int) (((ICalculator) staff2).calculateSalary() - ((ICalculator) staff1).calculateSalary());
-            }
-        });
+        staffArr.sort((staff1, staff2) -> (int) (((ICalculator) staff2).calculateSalary() - ((ICalculator) staff1).calculateSalary()));
 
         for (Staff staff : staffArr) {
             staff.displayInformation();
@@ -87,12 +88,7 @@ public class HumanResources {
     }
 
     public static void showIncreaseSalary() {
-        Collections.sort(staffArr, new Comparator<Staff>() {
-            @Override
-            public int compare(Staff staff1, Staff staff2) {
-                return (int) (((ICalculator) staff1).calculateSalary() - ((ICalculator) staff2).calculateSalary());
-            }
-        });
+        staffArr.sort((staff1, staff2) -> (int) (((ICalculator) staff1).calculateSalary() - ((ICalculator) staff2).calculateSalary()));
 
         for (Staff staff : staffArr) {
             staff.displayInformation();
@@ -101,12 +97,12 @@ public class HumanResources {
     }
 
     public static void showDepartmentEmployee() {
-        for (int i = 0; i < departmentArr.size(); i++) {
+        for (Department department : departmentArr) {
 
-            System.out.println(departmentArr.get(i).getDepartmentName());
+            System.out.println(department.getDepartmentName());
 
             for (Staff staff : staffArr) {
-                if (departmentArr.get(i).getDepartmentName().equals(staff.department)) {
+                if (department.getDepartmentName().equals(staff.department)) {
                     System.out.println("\n");
                     staff.displayInformation();
                 }
@@ -115,8 +111,8 @@ public class HumanResources {
     }
 
     public static void showDepartment() {
-        for (int i = 0; i < departmentArr.size(); i++) {
-            System.out.println(departmentArr.get(i).getDepartmentName());
+        for (Department department : departmentArr) {
+            System.out.println(department.getDepartmentName());
         }
     }
 
@@ -160,16 +156,12 @@ public class HumanResources {
         System.out.print("Xin vui long nhap he so luong: ");
         coefficientSalary = input.nextDouble();
 
-        System.out.print("Xin vui long nhap so gio lam them: ");
-        overtimeHours = input.nextInt();
-
-
         System.out.print("Ngay vao lam viec [dd/mm/yyyy]: ");
         entryDate = input.next();
         System.out.print("So ngay nghi: ");
         vacationDate = input.nextInt();
 
-        Manager manager = new Manager(id, name, department, entryDate, age, vacationDate, coefficientSalary, overtimeHours, position);
+        Manager manager = new Manager(id, name, department, entryDate, age, vacationDate, coefficientSalary, position);
 
         staffArr.add(manager);
         departmentArr.add(departmentObj);
