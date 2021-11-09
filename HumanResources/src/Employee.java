@@ -1,10 +1,8 @@
-public class Employee extends Staff {
+public class Employee extends Staff implements ICalculator {
     private int overtimeHours;
 
-
-    public double calculateSalary(double coefficientSalary, int overtimeHours) {
-        double salary = (coefficientSalary * 3000000) + (overtimeHours * 200000);
-        return salary;
+    public double calculateSalary() {
+        return (coefficientSalary * 3000000) + (overtimeHours * 200000);
     }
 
     Employee(String id2, String name2, String department2, String entryDate2, int age2, int vacationDate2, double coefficientSalary2, int overtimeHours2) {
@@ -27,4 +25,6 @@ public class Employee extends Staff {
         System.out.println("Ngay vao lam viec [dd/mm/yyyy]: " + this.entryDate);
         System.out.println("So ngay nghi: " + this.vacationDate);
     }
+
+
 }

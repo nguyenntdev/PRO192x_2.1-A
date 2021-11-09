@@ -1,9 +1,16 @@
-public class Manager extends Staff {
-    private int position;
-    private int overtimeHours;
+public class Manager extends Staff implements ICalculator {
+    private final int position;
+    private String positionString;
+    private double responsibilitySalary;
 
-    void calculateSalary() {
 
+     public double calculateSalary() {
+        switch (position) {
+            case 1 -> responsibilitySalary = 8000000;
+            case 2 -> responsibilitySalary = 5000000;
+            case 3 -> responsibilitySalary = 6000000;
+        }
+        return coefficientSalary * 5000000 + responsibilitySalary;
     }
 
 
@@ -15,14 +22,18 @@ public class Manager extends Staff {
         age = age2;
         vacationDate = vacationDate2;
         coefficientSalary = coefficientSalary2;
-        overtimeHours = overtimeHours2;
         position = position2;
     }
 
     @Override
     void displayInformation() {
+        switch (position) {
+            case 1 -> positionString = "Business leader";
+            case 2 -> positionString = "Project leader";
+            case 3 -> positionString = "Technical leader";
+        }
         System.out.println("Ten quan ly: " + this.name);
-        System.out.println("Chuc danh: " + this.position);
+        System.out.println("Chuc danh: " + this.positionString);
         System.out.println("Tuoi quan ly: " + this.age);
         System.out.println("Ma quan ly: " + this.id);
         System.out.println("Bo phan lam viec: " + this.department);

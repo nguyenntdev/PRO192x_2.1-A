@@ -1,6 +1,7 @@
 // Import class ngoài, tạo mảng
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -10,6 +11,7 @@ public class HumanResources {
     public static final Scanner input = new Scanner(System.in).useLocale(Locale.US);
     public static final ArrayList<Staff> staffArr = new ArrayList<>();
     public static final ArrayList<Department> departmentArr = new ArrayList<>();
+    public static final ArrayList<Double> staffSalary = new ArrayList<>();
 
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
@@ -52,7 +54,16 @@ public class HumanResources {
             staff.displayInformation();
             System.out.println("\n");
         }
+    }
 
+    public static void showSalary() {
+        for (int i = 0; i < staffArr.size(); i++) {
+            staffSalary.add(ICalculator.class.calculateSalary(i));
+        }
+        for (Staff staff : staffArr) {
+            System.out.println();
+            System.out.println("\n");
+        }
     }
 
     public static void showDepartmentEmployee() {
@@ -86,11 +97,11 @@ public class HumanResources {
     }
 
     public static void addManager() {
-        String id = "", name = "", department = "", entryDate = "";
-        int age = 0, vacationDate = 0, departmentID = 0, overtimeHours = 0;
+        String id, name, department = "", entryDate;
+        int age, vacationDate, departmentID = 0, overtimeHours;
 
         Department departmentObj = new Department(department, departmentID);
-        double coefficientSalary = 0.0;
+        double coefficientSalary;
 
         System.out.println("Xin vui long nhap thong tin quan ly moi: ");
         System.out.print("Ten quan ly: ");
@@ -99,11 +110,12 @@ public class HumanResources {
         age = input.nextInt();
         System.out.print("Ma quan ly: ");
         id = input.next();
-        System.out.print("\n" +
-                "Chuc danh cua quan ly:\n" +
-                "\t1. Business leader\n" +
-                "\t2. Project leader\n" +
-                "\t3. Technical leader");
+        System.out.print("""
+
+                Chuc danh cua quan ly:
+                \t1. Business leader
+                \t2. Project leader
+                \t3. Technical leader""");
         int position = input.nextInt();
         System.out.print("Bo phan lam viec: ");
         department = input.next();
@@ -140,11 +152,11 @@ public class HumanResources {
     }
 
     public static void addEmployee() {
-        String id = "", name = "", department = "", entryDate = "";
-        int age = 0, vacationDate = 0, departmentID = 0, overtimeHours = 0;
+        String id, name, department = "", entryDate;
+        int age, vacationDate, departmentID = 0, overtimeHours;
 
         Department departmentObj = new Department(department, departmentID);
-        double coefficientSalary = 0.0;
+        double coefficientSalary;
 
         System.out.println("Xin vui long nhap thong tin nhan vien moi: ");
         System.out.print("Ten nhan vien: ");
@@ -191,10 +203,11 @@ public class HumanResources {
     public static void addNewPerson() {
         int choice;
         do {
-            System.out.println("\n" +
-                    "Xin vui long chon loai nhan vien:\n" +
-                    "\t1. Nhan vien thong thuong\n" +
-                    "\t2. Nhan vien cap quan ly");
+            System.out.println("""
+
+                    Xin vui long chon loai nhan vien:
+                    \t1. Nhan vien thong thuong
+                    \t2. Nhan vien cap quan ly""");
             choice = input.nextInt();
             if (!(choice == 1) && !(choice == 2)) {
                 System.out.println("Lua chon ban nhap khong hop le, xin vui long nhap lai\n");
@@ -251,7 +264,6 @@ public class HumanResources {
                 case 4 -> addNewPerson();
                 case 5 -> findEmployee();
                 case 8 -> {
-                    break;
                 }
                 default -> System.out.println("Lua chon ban nhap khong hop le, xin vui long nhap lai!");
             }
