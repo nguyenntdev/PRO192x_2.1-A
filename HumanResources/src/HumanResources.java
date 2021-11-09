@@ -88,7 +88,7 @@ public class HumanResources {
                     \t\t\t\t | 7. Hien thi bang luong cua nhan vien tang dan          |
                     \t\t\t\t | 8. Thoat                                               |
                     \t\t\t\t ==========================================================
-                    \t\t\t\t Xin vui long nhap lua chon cua ban [1-7]:\s""");
+                    \t\t\t\t Xin vui long nhap lua chon cua ban [1-8]:\s""");
             choice = input.nextInt();
             if (!(choice > 0 && choice < 9)) {
                 clearScreen();
