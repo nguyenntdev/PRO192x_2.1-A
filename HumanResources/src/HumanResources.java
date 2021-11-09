@@ -167,7 +167,7 @@ public class HumanResources {
 
     public static void addManager() {
         String id, name, department = "", entryDate;
-        int age, vacationDate, departmentID = 0;
+        int age, vacationDate, departmentID = 0 ;
 
         Department departmentObj = new Department(department, departmentID);
         double coefficientSalary;
