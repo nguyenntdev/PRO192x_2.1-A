@@ -1,9 +1,25 @@
-// Import class ngoài, tạo mảng
+/**
+ * PRO192x_2.1-A_VN Assignment 2 -
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ * */
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class HumanResources {
@@ -56,29 +72,42 @@ public class HumanResources {
         }
     }
 
-    public static void showSalary() {
-        for (int i = 0; i < staffArr.size(); i++) {
-            staffSalary.add(ICalculator.class.calculateSalary(i));
-        }
+    public static void showDecreaseSalary() {
+        Collections.sort(staffArr, new Comparator<Staff>() {
+            @Override
+            public int compare(Staff staff1, Staff staff2) {
+                return (int) (((ICalculator) staff2).calculateSalary() - ((ICalculator) staff1).calculateSalary());
+            }
+        });
+
         for (Staff staff : staffArr) {
-            System.out.println();
+            staff.displayInformation();
+            System.out.println("\n");
+        }
+    }
+
+    public static void showIncreaseSalary() {
+        Collections.sort(staffArr, new Comparator<Staff>() {
+            @Override
+            public int compare(Staff staff1, Staff staff2) {
+                return (int) (((ICalculator) staff1).calculateSalary() - ((ICalculator) staff2).calculateSalary());
+            }
+        });
+
+        for (Staff staff : staffArr) {
+            staff.displayInformation();
             System.out.println("\n");
         }
     }
 
     public static void showDepartmentEmployee() {
         for (int i = 0; i < departmentArr.size(); i++) {
-            if (i == 0) {
-                System.out.println(departmentArr.get(0).getDepartmentName());
-            } else if (departmentArr.get(i).getDepartmentName().equals(departmentArr.get(i - 1).getDepartmentName())) {
-                continue;
-            }
-            if (i != 0) {
-                System.out.println(departmentArr.get(i).getDepartmentName());
-            }
+
+            System.out.println(departmentArr.get(i).getDepartmentName());
 
             for (Staff staff : staffArr) {
                 if (departmentArr.get(i).getDepartmentName().equals(staff.department)) {
+                    System.out.println("\n");
                     staff.displayInformation();
                 }
             }
@@ -86,13 +115,8 @@ public class HumanResources {
     }
 
     public static void showDepartment() {
-        if (departmentArr.size() > 0) {
-            System.out.println(departmentArr.get(0).getDepartmentName());
-        }
-        for (int i = 1; i < departmentArr.size(); i++) {
-            if (!(departmentArr.get(i).getDepartmentName().equals(departmentArr.get(i - 1).getDepartmentName()))) {
-                System.out.println(departmentArr.get(i).getDepartmentName());
-            }
+        for (int i = 0; i < departmentArr.size(); i++) {
+            System.out.println(departmentArr.get(i).getDepartmentName());
         }
     }
 
@@ -204,18 +228,15 @@ public class HumanResources {
         int choice;
         do {
             System.out.println("""
-
                     Xin vui long chon loai nhan vien:
                     \t1. Nhan vien thong thuong
                     \t2. Nhan vien cap quan ly""");
             choice = input.nextInt();
             if (!(choice == 1) && !(choice == 2)) {
                 System.out.println("Lua chon ban nhap khong hop le, xin vui long nhap lai\n");
-            }
-            else if (choice == 1) {
+            } else if (choice == 1) {
                 addEmployee();
-            }
-            else {
+            } else {
                 addManager();
             }
 
@@ -239,7 +260,7 @@ public class HumanResources {
             }
 
             case 1 -> {
-                System.out.print("Xin vui long nhap id nhan vien: ");
+                System.out.print("Xin vui long nhap ID nhan vien: ");
                 String staffID = input.nextLine();
 
                 for (Staff staff : staffArr) {
@@ -263,6 +284,8 @@ public class HumanResources {
                 case 3 -> showDepartmentEmployee();
                 case 4 -> addNewPerson();
                 case 5 -> findEmployee();
+                case 6 -> showDecreaseSalary();
+                case 7 -> showIncreaseSalary();
                 case 8 -> {
                 }
                 default -> System.out.println("Lua chon ban nhap khong hop le, xin vui long nhap lai!");
