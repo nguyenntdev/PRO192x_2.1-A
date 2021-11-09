@@ -150,6 +150,7 @@ public class HumanResources {
      * */
 
     public static void showDepartment() {
+        System.out.println("Cac bo phan da nhap:");
         for (Department department : departmentArr) {
             System.out.println(department.getDepartmentName());
         }
@@ -166,7 +167,7 @@ public class HumanResources {
 
     public static void addManager() {
         String id, name, department = "", entryDate;
-        int age, vacationDate, departmentID = 0, overtimeHours;
+        int age, vacationDate, departmentID = 0;
 
         Department departmentObj = new Department(department, departmentID);
         double coefficientSalary;
@@ -183,7 +184,7 @@ public class HumanResources {
                 Chuc danh cua quan ly:
                 \t1. Business leader
                 \t2. Project leader
-                \t3. Technical leader""");
+                \t3. Technical leader\n\n""");
         int position = input.nextInt();
         System.out.print("Bo phan lam viec: ");
         department = input.next();

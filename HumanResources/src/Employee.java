@@ -1,3 +1,11 @@
+/**
+ * - File Employee.java: là nơi chứa các hàm xly dữ liệu của nhân viên,
+ *   class Employee thừa kế từ class Staff và interface ICalculator.
+ *   Trong này chúng ta sẽ khai báo thêm 1 biến riêng của nhân viên là
+ *   overtimeHours, nghĩa là giờ làm thêm. Sau đó trong này
+ *   gồm constructor để lấy input, hàm calculateSalary return lương,
+ *   và in thông tin nhân viên.
+ */
 public class Employee extends Staff implements ICalculator {
     private final int overtimeHours;
 

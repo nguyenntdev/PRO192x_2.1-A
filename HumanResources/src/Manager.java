@@ -1,3 +1,13 @@
+/**
+ * - File Manager.java: là nơi chứa các hàm xly dữ liệu của quản lý,
+ *   class Manager thừa kế từ class Staff và interface ICalculator.
+ *   Trong này chúng ta sẽ khai báo thêm 3 biến riêng của manager là
+ *   chức vụ (choice dạng số) và chức vụ dạng chữ. Sau đó trong này
+ *   gồm constructor để lấy input, hàm calculateSalary return lương,
+ *   và in thông tin quản lý.
+ */
+
+
 public class Manager extends Staff implements ICalculator {
     private final int position;
     private String positionString;
