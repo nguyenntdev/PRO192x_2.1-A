@@ -1,31 +1,29 @@
-/*
-  Assignment 2 - HumanResources - Nguyễn Ngọc Thiện - FX10909
-  - Là phần mềm quản lý nhân sự trong công ty, gồm 7 chức
-    năng chính:
-    1. Hiển thị danh sách nhân viên hiện có trong công ty
-    (Hàm showEmployee())
-    2. Hiển thị các bộ phận trong công ty
-    (Hàm showDepartment())
-    3. Hiển thị các nhân viên theo từng bộ phận
-    (Hàm showDepartmentEmployee())
-    4. Thêm nhân viên mới vào công ty (Hàm addNewPerson): bao gồm 2 loại
-       - Thêm nhân viên thông thường (Hàm addEmployee())
-       - Thêm nhân viên là cấp quản lý (có thêm chức vụ) (Hàm addManager())
-    5. Tìm kiếm thông tin nhân viên theo tên hoặc mã nhân viên
-       (Hàm findEmployee())
-    6. Hiển thị bảng lương của nhân viên toàn công ty
-       (Hàm showDecreaseSalary())
-    7. Hiển thị bảng lương của nhân viên theo thứ tự tăng dần
-       (Hàm showIncreaseSalary())
-
-  - Cấu trúc dự án gồm 6 file chính:
-    1. Department.java
-    2. Employee.java
-    3. ICalculator.java
-    4. Manager.java
-    5. Staff.java
-    6. HumanResources.java
-  */
+// Assignment 2 - HumanResources - Nguyễn Ngọc Thiện - FX10909
+// - Là phần mềm quản lý nhân sự trong công ty, gồm 7 chức
+//   năng chính:
+//   1. Hiển thị danh sách nhân viên hiện có trong công ty
+//   (Hàm showEmployee())
+//   2. Hiển thị các bộ phận trong công ty
+//   (Hàm showDepartment())
+//   3. Hiển thị các nhân viên theo từng bộ phận
+//   (Hàm showDepartmentEmployee())
+//   4. Thêm nhân viên mới vào công ty (Hàm addNewPerson): bao gồm 2 loại
+//      - Thêm nhân viên thông thường (Hàm addEmployee())
+//      - Thêm nhân viên là cấp quản lý (có thêm chức vụ) (Hàm addManager())
+//   5. Tìm kiếm thông tin nhân viên theo tên hoặc mã nhân viên
+//      (Hàm findEmployee())
+//   6. Hiển thị bảng lương của nhân viên toàn công ty
+//      (Hàm showDecreaseSalary())
+//   7. Hiển thị bảng lương của nhân viên theo thứ tự tăng dần
+//      (Hàm showIncreaseSalary())
+//
+// - Cấu trúc dự án gồm 6 file chính:
+//   1. Department.java
+//   2. Employee.java
+//   3. ICalculator.java
+//   4. Manager.java
+//   5. Staff.java
+//   6. HumanResources.java
 
 import java.util.*;
 
@@ -84,7 +82,8 @@ public class HumanResources {
     }
 
     /** - Hàm showEmployee(): chức năng 1, hiển thị toàn bộ nhân viên
-     *    và thông tin nhân viên dùng vòng lặp for để duyệt mảng
+     *    và thông tin nhân viên dùng vòng lặp for để duyệt mảng, sau
+     *    đó dùng hàm displayInformation().
      * */
 
     public static void showEmployee() {
@@ -146,7 +145,9 @@ public class HumanResources {
     }
 
     /** - Hàm showDepartment(): liệt kê toàn bộ các tên bộ phận, đơn giản
-     *    là dùng vòng lặp duyệt qua mảng và in tên bộ phận.
+     *    là dùng vòng lặp duyệt qua mảng và in tên bộ phận bằng cách in
+     *    kết quả được trả về của hàm getDepartmentName trong Department
+     *    class.
      * */
 
     public static void showDepartment() {
@@ -162,7 +163,7 @@ public class HumanResources {
      *    rồi check trong mảng xem bộ phận của quản lý đã có hay chưa, nếu rồi
      *    thì tăng số người lên, nếu chưa thì tạo bộ phận mới. Cuối cùng khai
      *    báo 1 object Manager và truyền dữ liệu vào, rồi thêm object vào mảng,
-     *    đồng thời thêm 1 bộ phận mới vào mảng, nếu có
+     *    đồng thời thêm 1 bộ phận mới vào mảng, nếu có.
      * */
 
     public static void addManager() {
@@ -184,7 +185,9 @@ public class HumanResources {
                 Chuc danh cua quan ly:
                 \t1. Business leader
                 \t2. Project leader
-                \t3. Technical leader\n\n""");
+                \t3. Technical leader
+                                
+                """);
         int position = input.nextInt();
         System.out.print("Bo phan lam viec: ");
         department = input.next();
@@ -223,7 +226,7 @@ public class HumanResources {
      *    rồi check trong mảng xem bộ phận của nhân viên đã có hay chưa, nếu rồi
      *    thì tăng số người lên, nếu chưa thì tạo bộ phận mới. Cuối cùng khai
      *    báo 1 object Employee và truyền dữ liệu vào, rồi thêm object vào mảng,
-     *    đồng thời thêm 1 bộ phận mới vào mảng, nếu có
+     *    đồng thời thêm 1 bộ phận mới vào mảng, nếu có.
      * */
 
     public static void addEmployee() {
@@ -299,12 +302,15 @@ public class HumanResources {
     }
 
     /** - Hàm findEmployee(): tìm thông tin nhân viên qua tên/ID
-     *    Đầu tiên hỏi người dùng muốn tìm theo ID hay tên, sau
-     *    đó thu input lựa chọn và dùng switch case để tuỳ trường
-     *    hợp. Sau đó thu tiếp input của người dùng về tên/ID và
-     *    dùng vòng lặp for để duyệt xem trong mảng có tên/ID nào
-     *    trùng khớp thì dùng hàm displayInformation() để in thông
-     *    tin nhân viên đó ra.
+     *    Đầu tiên hỏi người dùng xem muốn tìm nhân viên theo ID
+     *    hay theo tên, sau khi người dùng chọn xong sử dụng
+     *    switch case để tìm. Nếu tìm theo tên thì sẽ thu tên nhân
+     *    viên vào 1 biến tạm, sau đó check xem biến đó có khớp với tên
+     *    nào trong mảng không. Nếu trùng thì in thông tin bằng hàm
+     *    displayInformation(). Còn nếu tìm theo id thì cũng thu ID
+     *    vào 1 biến tạm khác, sau đó so sánh với các phần tử trong
+     *    mảng, nếu trùng thì in ra thông tin bằng hàm
+     *    displayInformation().
      * */
 
     public static void findEmployee() {
@@ -339,8 +345,9 @@ public class HumanResources {
 
     /** - Hàm main: đơn giản là gọi Menu chọn chức năng,
      *    sau đó dùng switch case để tuỳ chức năng gọi
-     *    hàm cho đúng, nếu không hợp lệ thì mời người
-     *    dùng nhập lại do dùng hàm do-while
+     *    hàm cho đúng, nếu không hợp lệ (ngoài giới
+     *    hạn 1-8) thì mời người dùng nhập lại do dùng
+     *    hàm do-while
      * */
 
     public static void main(String[] args) {
