@@ -31,9 +31,21 @@ import java.util.*;
 
 public class HumanResources {
 
+    /* - Dòng 39 khai báo object Scanner tên là input
+    *  - Dòng 40 tạo ArrayList kiểu Staff, tên staffArr
+    *  - Dòng 41 tạo ArrayList kiểu Department, tên departmentArr
+    * */
+
     public static final Scanner input = new Scanner(System.in).useLocale(Locale.US);
     public static final ArrayList<Staff> staffArr = new ArrayList<>();
     public static final ArrayList<Department> departmentArr = new ArrayList<>();
+
+     /* - Hàm clearScreen() dùng để xoá màn hình
+     *  - Hàm featureMenu dùng để in Menu chọn chức năng, sau đó trả
+     *    về lựa chọn người dùng nhập, dùng vòng lặp do-while để khi
+     *    nhập lựa chọn quá giới hạn (giới hạn: 0 < lựa chọn < 9) thì
+     *    lặp lại bảng chọn
+     * */
 
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
@@ -71,12 +83,22 @@ public class HumanResources {
         return choice;
     }
 
+    /** - Hàm showEmployee(): chức năng 1, hiển thị toàn bộ nhân viên
+     *    và thông tin nhân viên dùng vòng lặp for để duyệt mảng
+     * */
+
     public static void showEmployee() {
         for (Staff staff : staffArr) {
             staff.displayInformation();
             System.out.println("\n");
         }
     }
+
+    /** - Hàm showDecreaseSalary(): chức năng 6, hiển thị toàn bộ
+     *    thông tin và bảng lương nhân viên theo thứ tự giảm dần
+     *    (tiêu chí nâng cao) bằng cách sắp xếp mảng bằng list.sort,
+     *    sau đó dùng vòng lặp for để duyệt mảng
+     * */
 
     public static void showDecreaseSalary() {
         staffArr.sort((staff1, staff2) -> (int) (((ICalculator) staff2).calculateSalary() - ((ICalculator) staff1).calculateSalary()));
@@ -87,6 +109,11 @@ public class HumanResources {
         }
     }
 
+    /** - Hàm showIncreaseSalary(): chức năng 7, hiển thị toàn bộ
+     *    thông tin và bảng lương nhân viên theo thứ tự tăng dần
+     *    (tiêu chí nâng cao) bằng cách sắp xếp mảng bằng list.sort,
+     *    sau đó dùng vòng lặp for để duyệt mảng
+     * */
     public static void showIncreaseSalary() {
         staffArr.sort((staff1, staff2) -> (int) (((ICalculator) staff1).calculateSalary() - ((ICalculator) staff2).calculateSalary()));
 
@@ -95,6 +122,14 @@ public class HumanResources {
             System.out.println("\n");
         }
     }
+
+    /** - Hàm showDepartmentEmployee(): chức năng 3, hiển thị toàn bộ
+     *    thông tin nhân viên được xếp theo nhóm các bộ phận sau đó
+     *    dùng vòng lặp for để duyệt mảng bộ phận, tiếp theo check
+     *    xem thử tên bộ phận đã có ở mảng departmentArr có trùng
+     *    với thuộc tính tên bộ phận của nhân viên (staff.department)
+     *    không.
+     * */
 
     public static void showDepartmentEmployee() {
         for (Department department : departmentArr) {
@@ -110,11 +145,24 @@ public class HumanResources {
         }
     }
 
+    /** - Hàm showDepartment(): liệt kê toàn bộ các tên bộ phận, đơn giản
+     *    là dùng vòng lặp duyệt qua mảng và in tên bộ phận.
+     * */
+
     public static void showDepartment() {
         for (Department department : departmentArr) {
             System.out.println(department.getDepartmentName());
         }
     }
+
+    /** - Hàm addManager(): thêm quản lý mới, là 1 phần của hàm addNewPerson,
+     *    dùng để thêm nhân viên ở cấp quản lý. Đầu tiên khởi tạo giá trị
+     *    thuộc tính cơ bản của nhân viên, sau đó yêu cầu người dùng nhập vào,
+     *    rồi check trong mảng xem bộ phận của quản lý đã có hay chưa, nếu rồi
+     *    thì tăng số người lên, nếu chưa thì tạo bộ phận mới. Cuối cùng khai
+     *    báo 1 object Manager và truyền dữ liệu vào, rồi thêm object vào mảng,
+     *    đồng thời thêm 1 bộ phận mới vào mảng, nếu có
+     * */
 
     public static void addManager() {
         String id, name, department = "", entryDate;
@@ -167,6 +215,16 @@ public class HumanResources {
         departmentArr.add(departmentObj);
     }
 
+
+    /** - Hàm addEmployee(): thêm nhân viên mới, là 1 phần của hàm addNewPerson,
+     *    dùng để thêm nhân viên thông thường. Đầu tiên khởi tạo giá trị
+     *    thuộc tính cơ bản của nhân viên, sau đó yêu cầu người dùng nhập vào,
+     *    rồi check trong mảng xem bộ phận của nhân viên đã có hay chưa, nếu rồi
+     *    thì tăng số người lên, nếu chưa thì tạo bộ phận mới. Cuối cùng khai
+     *    báo 1 object Employee và truyền dữ liệu vào, rồi thêm object vào mảng,
+     *    đồng thời thêm 1 bộ phận mới vào mảng, nếu có
+     * */
+
     public static void addEmployee() {
         String id, name, department = "", entryDate;
         int age, vacationDate, departmentID = 0, overtimeHours;
@@ -216,6 +274,10 @@ public class HumanResources {
 
     }
 
+    /** - Hàm addNewPerson(): đơn giản là in Menu gọi hàm thêm nhân viên,
+     *    quản lý.
+     * */
+
     public static void addNewPerson() {
         int choice;
         do {
@@ -234,6 +296,15 @@ public class HumanResources {
 
         } while (!(choice == 1) && !(choice == 2));
     }
+
+    /** - Hàm findEmployee(): tìm thông tin nhân viên qua tên/ID
+     *    Đầu tiên hỏi người dùng muốn tìm theo ID hay tên, sau
+     *    đó thu input lựa chọn và dùng switch case để tuỳ trường
+     *    hợp. Sau đó thu tiếp input của người dùng về tên/ID và
+     *    dùng vòng lặp for để duyệt xem trong mảng có tên/ID nào
+     *    trùng khớp thì dùng hàm displayInformation() để in thông
+     *    tin nhân viên đó ra.
+     * */
 
     public static void findEmployee() {
         System.out.println("Ban muon tim nhan vien theo ID hay ten?\n ID: 1\n Ten: 2");
@@ -265,6 +336,11 @@ public class HumanResources {
         }
     }
 
+    /** - Hàm main: đơn giản là gọi Menu chọn chức năng,
+     *    sau đó dùng switch case để tuỳ chức năng gọi
+     *    hàm cho đúng, nếu không hợp lệ thì mời người
+     *    dùng nhập lại do dùng hàm do-while
+     * */
 
     public static void main(String[] args) {
         int choice;
@@ -278,10 +354,13 @@ public class HumanResources {
                 case 5 -> findEmployee();
                 case 6 -> showDecreaseSalary();
                 case 7 -> showIncreaseSalary();
-                case 8 -> {
-                }
+                case 8 -> {}
                 default -> System.out.println("Lua chon ban nhap khong hop le, xin vui long nhap lai!");
             }
         } while (choice != 8);
     }
 }
+
+/*==============================================|
+| E  N  D    O  F    F  I  L  E   :D            |
+|==============================================*/
