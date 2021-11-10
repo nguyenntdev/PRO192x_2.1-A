@@ -169,7 +169,7 @@ public class HumanResources {
 
     public static void showDepartmentEmployee() {
         for (Department department : departmentArr) {
-
+            System.out.printf("| %-32s | %-32s | %-32s |\n", "Ten bo phan", "ID bo phan", "So nhan vien");
             System.out.println("\n" + department + "\n");
 
             for (Staff staff : staffArr) {

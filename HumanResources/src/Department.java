@@ -36,12 +36,7 @@ public class Department {
      *   nhân viên
      */
     public String toString() {
-        return ("Ten bo phan: " +
-                departmentName +
-                "\nMa bo phan: " +
-                departmentID +
-                "\nSo nhan vien: " +
-                departmentEmployeesNumber);
+        return (String.format("| %-32s | %-32d | %-32d |\n", this.departmentName, this.departmentID, this.departmentEmployeesNumber));
     }
 
     /**
