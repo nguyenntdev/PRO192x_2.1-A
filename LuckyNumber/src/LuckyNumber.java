@@ -23,7 +23,7 @@ import java.text.*;
 *
 *
 *
-* */
+*/
 public class LuckyNumber {
     public static final int max = 100; // Định nghĩa hằng số max cho random
 

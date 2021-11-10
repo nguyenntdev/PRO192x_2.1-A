@@ -93,11 +93,12 @@ public class HumanResources {
         }
     }
 
-    /** - Hàm showDecreaseSalary(): chức năng 6, hiển thị toàn bộ
+    /**
+     * - Hàm showDecreaseSalary(): chức năng 6, hiển thị toàn bộ
      *    thông tin và bảng lương nhân viên theo thứ tự giảm dần
      *    (tiêu chí nâng cao) bằng cách sắp xếp mảng bằng list.sort,
      *    sau đó dùng vòng lặp for để duyệt mảng
-     * */
+     */
 
     public static void showDecreaseSalary() {
         staffArr.sort((staff1, staff2) -> (int) (((ICalculator) staff2).calculateSalary() - ((ICalculator) staff1).calculateSalary()));
@@ -108,11 +109,12 @@ public class HumanResources {
         }
     }
 
-    /** - Hàm showIncreaseSalary(): chức năng 7, hiển thị toàn bộ
+    /**
+     * - Hàm showIncreaseSalary(): chức năng 7, hiển thị toàn bộ
      *    thông tin và bảng lương nhân viên theo thứ tự tăng dần
      *    (tiêu chí nâng cao) bằng cách sắp xếp mảng bằng list.sort,
      *    sau đó dùng vòng lặp for để duyệt mảng
-     * */
+     */
     public static void showIncreaseSalary() {
         staffArr.sort((staff1, staff2) -> (int) (((ICalculator) staff1).calculateSalary() - ((ICalculator) staff2).calculateSalary()));
 
@@ -128,7 +130,7 @@ public class HumanResources {
      *    xem thử tên bộ phận đã có ở mảng departmentArr có trùng
      *    với thuộc tính tên bộ phận của nhân viên (staff.department)
      *    không.
-     * */
+     */
 
     public static void showDepartmentEmployee() {
         for (Department department : departmentArr) {
@@ -144,11 +146,12 @@ public class HumanResources {
         }
     }
 
-    /** - Hàm showDepartment(): liệt kê toàn bộ các tên bộ phận, đơn giản
+    /**
+     * - Hàm showDepartment(): liệt kê toàn bộ các tên bộ phận, đơn giản
      *    là dùng vòng lặp duyệt qua mảng và in tên bộ phận bằng cách in
      *    kết quả được trả về của hàm getDepartmentName trong Department
      *    class.
-     * */
+     */
 
     public static void showDepartment() {
         System.out.println("Cac bo phan da nhap:");
@@ -164,7 +167,7 @@ public class HumanResources {
      *    thì tăng số người lên, nếu chưa thì tạo bộ phận mới. Cuối cùng khai
      *    báo 1 object Manager và truyền dữ liệu vào, rồi thêm object vào mảng,
      *    đồng thời thêm 1 bộ phận mới vào mảng, nếu có.
-     * */
+     */
 
     public static void addManager() {
         String id, name, department = "", entryDate;
@@ -246,14 +249,18 @@ public class HumanResources {
         System.out.print("Bo phan lam viec: ");
         department = input.next();
         boolean checkDepartmentIncrease = false;
+
+        // Check xem tên bộ phận vừa rồi có trùng với phần tử nào trong mảng không
         for (Department value : departmentArr) {
             if (value.getDepartmentName().equals(department)) {
+                // Nếu trùng thì tăng người trong bộ phận và checkDepartmentIncrease = true
                 value.increaseEmployeesNumber();
                 checkDepartmentIncrease = true;
             }
         }
 
         if (!checkDepartmentIncrease) {
+            // Nếu checkDepartmentIncrease = false thì yêu cầu nhập mã bộ phận và tạo bộ phận mới
             System.out.print("Xin vui long nhap ma bo phan: ");
             departmentID = input.nextInt();
             departmentObj = new Department(department, departmentID);
@@ -278,9 +285,10 @@ public class HumanResources {
 
     }
 
-    /** - Hàm addNewPerson(): đơn giản là in Menu gọi hàm thêm nhân viên,
+    /**
+     * - Hàm addNewPerson(): đơn giản là in Menu gọi hàm thêm nhân viên,
      *    quản lý.
-     * */
+     */
 
     public static void addNewPerson() {
         int choice;
@@ -301,7 +309,8 @@ public class HumanResources {
         } while (!(choice == 1) && !(choice == 2));
     }
 
-    /** - Hàm findEmployee(): tìm thông tin nhân viên qua tên/ID
+    /**
+     * - Hàm findEmployee(): tìm thông tin nhân viên qua tên/ID
      *    Đầu tiên hỏi người dùng xem muốn tìm nhân viên theo ID
      *    hay theo tên, sau khi người dùng chọn xong sử dụng
      *    switch case để tìm. Nếu tìm theo tên thì sẽ thu tên nhân
@@ -343,7 +352,8 @@ public class HumanResources {
         }
     }
 
-    /** - Hàm main: đơn giản là gọi Menu chọn chức năng,
+    /**
+     * - Hàm main: đơn giản là gọi Menu chọn chức năng,
      *    sau đó dùng switch case để tuỳ chức năng gọi
      *    hàm cho đúng, nếu không hợp lệ (ngoài giới
      *    hạn 1-8) thì mời người dùng nhập lại do dùng
