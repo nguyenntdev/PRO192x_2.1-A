@@ -59,7 +59,7 @@ public class LuckyNumber {
         int guessTime = 1;
 
         Scanner input = new Scanner(System.in);
-        int randomNumber = (int) Math.floor(Math.random() * (max - 1 + 1));
+        int randomNumber = (int) Math.floor(Math.random() * (max - 0 + 1));
         clearScreen();
         showSeperator();
         showBrand();
