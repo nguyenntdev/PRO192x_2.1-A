@@ -9,16 +9,16 @@
 public class Employee extends Staff implements ICalculator {
     /**
      * - Khởi tạo biến overtimeHours cần thiết của Employee
-     *    mà Staff không có.
+     * mà Staff không có.
      */
 
 
     private final int overtimeHours;
 
     /**
-     *  - Constructor Employee(): lấy DL của người dùng
-     *    trong đó các DL cần lấy là ID, tên, bộ phận,
-     *    ngày vào làm, tên, tuổi, ngày nghỉ, HSL.
+     * - Constructor Employee(): lấy DL của người dùng
+     * trong đó các DL cần lấy là ID, tên, bộ phận,
+     * ngày vào làm, tên, tuổi, ngày nghỉ, HSL.
      */
 
     Employee(String id2, String name2, String department2, String entryDate2, int age2, int vacationDate2, double coefficientSalary2, int overtimeHours2) {
@@ -34,8 +34,8 @@ public class Employee extends Staff implements ICalculator {
 
     /**
      * - Hàm calculateSalary(), return kết quả dạng double.
-     *    Return về kết quả công thức lương: HSL * 3000000
-     *    + số giờ làm thêm * 200000
+     * Return về kết quả công thức lương: HSL * 3000000
+     * + số giờ làm thêm * 200000
      */
     public double calculateSalary() {
         return (coefficientSalary * 3000000) + (overtimeHours * 200000);
@@ -43,18 +43,13 @@ public class Employee extends Staff implements ICalculator {
 
     /**
      * - Hàm displayInfomation(): in thông tin quản lý
-     *    như tên, tuổi, chức vụ, lương...v.v.
+     * như tên, tuổi, chức vụ, lương...v.v.
      */
 
     @Override
     void displayInformation() {
-        System.out.println("Ten nhan vien: " + this.name);
-        System.out.println("Tuoi nhan vien: " + this.age);
-        System.out.println("Ma nhan vien: " + this.id);
-        System.out.println("Bo phan lam viec: " + this.department);
-        System.out.println("Ngay vao lam viec [dd/mm/yyyy]: " + this.entryDate);
-        System.out.println("So ngay nghi: " + this.vacationDate);
-        System.out.printf("Luong: %.1f%n", calculateSalary());
+        System.out.printf("| %-10s | %-10d | %-10s | %-10s | %-10s   | %-10d   | %-10.1f | %-10d   | %-16s |\n", this.name,
+                this.age, this.id, this.department, this.entryDate, this.vacationDate, this.calculateSalary(), this.overtimeHours, " ");
     }
 
 

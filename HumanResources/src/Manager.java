@@ -67,13 +67,9 @@ public class Manager extends Staff implements ICalculator {
             case 2 -> positionString = "Project leader";
             case 3 -> positionString = "Technical leader";
         }
-        System.out.println("Ten quan ly: " + this.name);
-        System.out.println("Chuc danh: " + this.positionString);
-        System.out.println("Tuoi quan ly: " + this.age);
-        System.out.println("Ma quan ly: " + this.id);
-        System.out.println("Bo phan lam viec: " + this.department);
-        System.out.println("Ngay vao lam viec [dd/mm/yyyy]: " + this.entryDate);
-        System.out.println("So ngay nghi: " + this.vacationDate);
-        System.out.printf("Luong: %.1f%n", calculateSalary());
+        System.out.printf("| %-10s | %-10d | %-10s | %-10s | %-10s   | %-10d   | %-10.1f | %-10s   | %-16s |\n" +
+                        "", this.name,
+                this.age, this.id, this.department, this.entryDate, this.vacationDate, this.calculateSalary(), " ", this.positionString);
+
     }
 }
