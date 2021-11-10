@@ -116,7 +116,7 @@ public class HumanResources {
             staff.displayInformation();
         }
         System.out
-                .printf("""
+                .print("""
                         ==================================================================================================================================""");
         System.out.println("\n\nNhan 0 va Enter de quay lai menu.");
 
@@ -132,12 +132,21 @@ public class HumanResources {
     public static void showDecreaseSalary() {
         staffArr.sort((staff1,
                 staff2) -> (int) (((ICalculator) staff2).calculateSalary() - ((ICalculator) staff1).calculateSalary()));
+        System.out.printf(
+                """
+                        ==================================================================================================================================
+                        | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-16s |
+                        """,
+                "Ten", "Tuoi", "ID", "Bo phan", "Ngay vao lam", "So ngay nghi", "Luong", "Gio lam them", "Chuc vu");
 
         for (Staff staff : staffArr) {
             staff.displayInformation();
-            System.out.println("\n");
         }
-        System.out.println("Nhan 0 va Enter de quay lai menu.");
+        System.out
+                .print("""
+                        ==================================================================================================================================""");
+
+        System.out.println("\n\nNhan 0 va Enter de quay lai menu.");
 
         enterToExit();
     }
@@ -150,12 +159,22 @@ public class HumanResources {
     public static void showIncreaseSalary() {
         staffArr.sort((staff1,
                 staff2) -> (int) (((ICalculator) staff1).calculateSalary() - ((ICalculator) staff2).calculateSalary()));
+        System.out.printf(
+                """
+                        ==================================================================================================================================
+                        | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-16s |
+                        """,
+                "Ten", "Tuoi", "ID", "Bo phan", "Ngay vao lam", "So ngay nghi", "Luong", "Gio lam them", "Chuc vu");
+
 
         for (Staff staff : staffArr) {
             staff.displayInformation();
-            System.out.println("\n");
         }
-        System.out.println("Nhan 0 va Enter de quay lai menu.");
+        System.out
+                .print("""
+                        ==================================================================================================================================""");
+
+        System.out.println("\n\nNhan 0 va Enter de quay lai menu.");
 
         enterToExit();
     }
@@ -169,16 +188,25 @@ public class HumanResources {
 
     public static void showDepartmentEmployee() {
         for (Department department : departmentArr) {
-            System.out.printf("| %-32s | %-32s | %-32s |\n", "Ten bo phan", "ID bo phan", "So nhan vien");
-            System.out.println("\n" + department + "\n");
+            System.out
+                    .print("""
+                        ==================================================================================================================================\n""");
+            System.out.printf("| %-40s | %-40s | %-40s |\n", "Ten bo phan", "ID bo phan", "So nhan vien");
+            System.out.println(department);
+            System.out
+                    .print("""
+                        ==================================================================================================================================\n""");
 
             for (Staff staff : staffArr) {
                 if (department.getDepartmentName().equals(staff.department)) {
-                    System.out.println("\n");
                     staff.displayInformation();
                 }
             }
         }
+        System.out
+                .print("""
+                        ==================================================================================================================================\n""");
+
         System.out.println("Nhan 0 va Enter de quay lai menu.");
 
         enterToExit();
@@ -191,10 +219,17 @@ public class HumanResources {
      */
 
     public static void showDepartment() {
-        System.out.println("Cac bo phan trong cong ty:");
+        System.out
+                .print("""
+                        ==================================================================================================================================\n""");
+        System.out.printf("| %-40s | %-40s | %-40s |\n", "Ten bo phan", "ID bo phan", "So nhan vien");
         for (Department department : departmentArr) {
-            System.out.println(department + "\n");
+            System.out.println(department);
         }
+
+        System.out
+                .print("""
+                        ==================================================================================================================================\n""");
         System.out.println("Nhan 0 va Enter de quay lai menu.");
 
         enterToExit();
@@ -382,34 +417,53 @@ public class HumanResources {
             String staffName = input.nextLine();
 
             boolean staffEqual = false;
+            System.out.printf(
+                    """
+                            ==================================================================================================================================
+                            | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-16s |
+                            """,
+                    "Ten", "Tuoi", "ID", "Bo phan", "Ngay vao lam", "So ngay nghi", "Luong", "Gio lam them", "Chuc vu");
             for (Staff staff : staffArr) {
                 if (staffName.equals(staff.name)) {
                     staff.displayInformation();
-                    System.out.print("\n");
                     staffEqual = true;
                 }
             }
 
             if (!staffEqual) {
-                System.out.println("Khong tim thay nhan vien");
+                System.out.printf("| %-130s |", "Khong tim thay nhan vien");
             }
+            System.out
+                    .print("""
+                        ==================================================================================================================================\n""");
         }
+
 
         case 1 -> {
             System.out.print("Xin vui long nhap ID nhan vien: ");
             String staffID = input.nextLine();
 
             boolean staffEqual = false;
+            System.out.printf(
+                    """
+                            ==================================================================================================================================
+                            | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-16s |
+                            """,
+                    "Ten", "Tuoi", "ID", "Bo phan", "Ngay vao lam", "So ngay nghi", "Luong", "Gio lam them", "Chuc vu");
             for (Staff staff : staffArr) {
                 if (staffID.equals(staff.id)) {
                     staff.displayInformation();
-                    System.out.print("\n");
                     staffEqual = true;
                 }
             }
+
             if (!staffEqual) {
-                System.out.println("Khong tim thay nhan vien");
+                System.out.printf("| %-130s |", "Khong tim thay nhan vien");
             }
+
+            System.out
+                    .print("""
+                        ==================================================================================================================================\n""");
         }
 
         }

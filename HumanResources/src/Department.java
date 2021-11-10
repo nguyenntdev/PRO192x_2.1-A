@@ -36,7 +36,7 @@ public class Department {
      *   nhân viên
      */
     public String toString() {
-        return (String.format("| %-32s | %-32d | %-32d |\n", this.departmentName, this.departmentID, this.departmentEmployeesNumber));
+        return (String.format("| %-40s | %-40d | %-40d |", this.departmentName, this.departmentID, this.departmentEmployeesNumber));
     }
 
     /**
