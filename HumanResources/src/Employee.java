@@ -41,7 +41,8 @@ public class Employee extends Staff implements ICalculator {
         return (coefficientSalary * 3000000) + (overtimeHours * 200000);
     }
 
-    /** - Hàm displayInfomation(): in thông tin quản lý
+    /**
+     * - Hàm displayInfomation(): in thông tin quản lý
      *    như tên, tuổi, chức vụ, lương...v.v.
      */
 

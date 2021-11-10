@@ -3,6 +3,7 @@
  *    làm, tuổi, số ngày nghỉ, hệ số lương và hàm
  *    chung là in thông tin nhân viên
  * */
+
 abstract class Staff {
     public String id = "", name = "", department = "", entryDate = "";
     public int age = 0, vacationDate = 0;

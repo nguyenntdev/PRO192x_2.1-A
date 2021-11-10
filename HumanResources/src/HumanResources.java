@@ -85,8 +85,8 @@ public class HumanResources {
     }
 
     /**
-     * - Hàm showEmployee(): chức năng 1, hiển thị toàn bộ nhân viên
      *    và thông tin nhân viên dùng vòng lặp for để duyệt mảng, sau
+     * - Hàm showEmployee(): chức năng 1, hiển thị toàn bộ nhân viên
      *    đó dùng hàm displayInformation().
      * */
 
@@ -140,7 +140,8 @@ public class HumanResources {
     public static void showDepartmentEmployee() {
         for (Department department : departmentArr) {
 
-            System.out.println(department.getDepartmentName());
+            System.out.println("\n" + department + "\n");
+
 
             for (Staff staff : staffArr) {
                 if (department.getDepartmentName().equals(staff.department)) {
@@ -159,9 +160,9 @@ public class HumanResources {
      */
 
     public static void showDepartment() {
-        System.out.println("Cac bo phan da nhap:");
+        System.out.println("Cac bo phan trong cong ty:");
         for (Department department : departmentArr) {
-            System.out.println(department.getDepartmentName());
+            System.out.println(department + "\n");
         }
     }
 
@@ -178,8 +179,6 @@ public class HumanResources {
     public static void addManager() {
         String id, name, department = "", entryDate;
         int age, vacationDate, departmentID = 0 ;
-
-        Department departmentObj = new Department(department, departmentID);
         double coefficientSalary;
 
         System.out.println("Xin vui long nhap thong tin quan ly moi: ");
@@ -189,6 +188,8 @@ public class HumanResources {
         age = input.nextInt();
         System.out.print("Ma quan ly: ");
         id = input.next();
+        int position;
+        do {
         System.out.print("""
 
                 Chuc danh cua quan ly:
@@ -197,7 +198,13 @@ public class HumanResources {
                 \t3. Technical leader
                                 
                 """);
-        int position = input.nextInt();
+        position = input.nextInt();
+
+        if (position > 3 && position < 1) {
+            System.out.println("Lua chon ban nhap khong hop le, xin vui long nhap lai");
+        }
+
+        } while (position > 3 && position < 1);
         System.out.print("Bo phan lam viec: ");
         department = input.next();
         boolean checkDepartmentIncrease = false;
@@ -215,7 +222,8 @@ public class HumanResources {
             // Nếu checkDepartmentIncrease = false thì yêu cầu nhập mã bộ phận và tạo bộ phận mới
             System.out.print("Xin vui long nhap ma bo phan: ");
             departmentID = input.nextInt();
-            departmentObj = new Department(department, departmentID);
+            Department departmentObj = new Department(department, departmentID);
+            departmentArr.add(departmentObj);
         }
 
         System.out.print("Xin vui long nhap he so luong: ");
@@ -229,7 +237,6 @@ public class HumanResources {
         Manager manager = new Manager(id, name, department, entryDate, age, vacationDate, coefficientSalary, position);
 
         staffArr.add(manager);
-        departmentArr.add(departmentObj);
     }
 
 
@@ -247,7 +254,6 @@ public class HumanResources {
         String id, name, department = "", entryDate;
         int age, vacationDate, departmentID = 0, overtimeHours;
 
-        Department departmentObj = new Department(department, departmentID);
         double coefficientSalary;
 
         System.out.println("Xin vui long nhap thong tin nhan vien moi: ");
@@ -274,7 +280,8 @@ public class HumanResources {
             // Nếu checkDepartmentIncrease = false thì yêu cầu nhập mã bộ phận và tạo bộ phận mới
             System.out.print("Xin vui long nhap ma bo phan: ");
             departmentID = input.nextInt();
-            departmentObj = new Department(department, departmentID);
+            Department departmentObj = new Department(department, departmentID);
+            departmentArr.add(departmentObj);
         }
 
         System.out.print("Xin vui long nhap he so luong: ");
@@ -292,7 +299,6 @@ public class HumanResources {
         Employee employee = new Employee(id, name, department, entryDate, age, vacationDate, coefficientSalary, overtimeHours);
 
         staffArr.add(employee);
-        departmentArr.add(departmentObj);
 
     }
 
