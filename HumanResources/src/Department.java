@@ -16,17 +16,17 @@ public class Department {
      */
 
     private final String departmentName;
-    private int departmentEmployeesNumber;
-    private final int departmentID;
+    private int departmentEmployeesNumber, departmentID;
 
     /**
      * - Constructor Department(): lấy input của người dùng
      *   tên và ID bộ phận
      */
 
-    public Department(String i, int n) {
+    public Department(String i, int n, int z) {
         departmentName = i;
         departmentID = n;
+        departmentEmployeesNumber = z;
     }
 
 

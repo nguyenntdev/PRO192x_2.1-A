@@ -25,21 +25,23 @@
 //   5. Staff.java
 //   6. HumanResources.java
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class HumanResources {
 
     /* - Dòng 37 khai báo object Scanner tên là input
-    *  - Dòng 38 tạo ArrayList kiểu Staff, tên staffArr
-    *  - Dòng 39 tạo ArrayList kiểu Department, tên departmentArr
-    * */
+     *  - Dòng 38 tạo ArrayList kiểu Staff, tên staffArr
+     *  - Dòng 39 tạo ArrayList kiểu Department, tên departmentArr
+     * */
 
     public static final Scanner input = new Scanner(System.in).useLocale(Locale.US);
     public static final ArrayList<Staff> staffArr = new ArrayList<>();
     public static final ArrayList<Department> departmentArr = new ArrayList<>();
 
-     /**
-      * - Hàm clearScreen() dùng để xoá màn hình
+    /**
+     * - Hàm clearScreen() dùng để xoá màn hình
      */
 
     public static void clearScreen() {
@@ -49,9 +51,9 @@ public class HumanResources {
 
     /**
      * - Hàm featureMenu() dùng để in Menu chọn chức năng, sau đó trả
-     *   về lựa chọn người dùng nhập, dùng vòng lặp do-while để khi
-     *   nhập lựa chọn quá giới hạn (giới hạn: 0 < lựa chọn < 9) thì
-     *   lặp lại bảng chọn.
+     * về lựa chọn người dùng nhập, dùng vòng lặp do-while để khi
+     * nhập lựa chọn quá giới hạn (giới hạn: 0 < lựa chọn < 9) thì
+     * lặp lại bảng chọn.
      */
 
     public static int featureMenu() {
@@ -85,10 +87,10 @@ public class HumanResources {
     }
 
     /**
-     *    và thông tin nhân viên dùng vòng lặp for để duyệt mảng, sau
+     * và thông tin nhân viên dùng vòng lặp for để duyệt mảng, sau
      * - Hàm showEmployee(): chức năng 1, hiển thị toàn bộ nhân viên
-     *    đó dùng hàm displayInformation().
-     * */
+     * đó dùng hàm displayInformation().
+     */
 
     public static void showEmployee() {
         for (Staff staff : staffArr) {
@@ -99,9 +101,9 @@ public class HumanResources {
 
     /**
      * - Hàm showDecreaseSalary(): chức năng 6, hiển thị toàn bộ
-     *    thông tin và bảng lương nhân viên theo thứ tự giảm dần
-     *    (tiêu chí nâng cao) bằng cách sắp xếp mảng bằng list.sort,
-     *    sau đó dùng vòng lặp for để duyệt mảng
+     * thông tin và bảng lương nhân viên theo thứ tự giảm dần
+     * (tiêu chí nâng cao) bằng cách sắp xếp mảng bằng list.sort,
+     * sau đó dùng vòng lặp for để duyệt mảng
      */
 
     public static void showDecreaseSalary() {
@@ -115,9 +117,9 @@ public class HumanResources {
 
     /**
      * - Hàm showIncreaseSalary(): chức năng 7, hiển thị toàn bộ
-     *    thông tin và bảng lương nhân viên theo thứ tự tăng dần
-     *    (tiêu chí nâng cao) bằng cách sắp xếp mảng bằng list.sort,
-     *    sau đó dùng vòng lặp for để duyệt mảng
+     * thông tin và bảng lương nhân viên theo thứ tự tăng dần
+     * (tiêu chí nâng cao) bằng cách sắp xếp mảng bằng list.sort,
+     * sau đó dùng vòng lặp for để duyệt mảng
      */
     public static void showIncreaseSalary() {
         staffArr.sort((staff1, staff2) -> (int) (((ICalculator) staff1).calculateSalary() - ((ICalculator) staff2).calculateSalary()));
@@ -130,11 +132,11 @@ public class HumanResources {
 
     /**
      * - Hàm showDepartmentEmployee(): chức năng 3, hiển thị toàn bộ
-     *    thông tin nhân viên được xếp theo nhóm các bộ phận sau đó
-     *    dùng vòng lặp for để duyệt mảng bộ phận, tiếp theo check
-     *    xem thử tên bộ phận đã có ở mảng departmentArr có trùng
-     *    với thuộc tính tên bộ phận của nhân viên (staff.department)
-     *    không.
+     * thông tin nhân viên được xếp theo nhóm các bộ phận sau đó
+     * dùng vòng lặp for để duyệt mảng bộ phận, tiếp theo check
+     * xem thử tên bộ phận đã có ở mảng departmentArr có trùng
+     * với thuộc tính tên bộ phận của nhân viên (staff.department)
+     * không.
      */
 
     public static void showDepartmentEmployee() {
@@ -154,9 +156,9 @@ public class HumanResources {
 
     /**
      * - Hàm showDepartment(): liệt kê toàn bộ các tên bộ phận, đơn giản
-     *    là dùng vòng lặp duyệt qua mảng và in tên bộ phận bằng cách in
-     *    kết quả được trả về của hàm getDepartmentName trong Department
-     *    class.
+     * là dùng vòng lặp duyệt qua mảng và in tên bộ phận bằng cách in
+     * kết quả được trả về của hàm getDepartmentName trong Department
+     * class.
      */
 
     public static void showDepartment() {
@@ -168,17 +170,17 @@ public class HumanResources {
 
     /**
      * - Hàm addManager(): thêm quản lý mới, là 1 phần của hàm addNewPerson,
-     *    dùng để thêm nhân viên ở cấp quản lý. Đầu tiên khởi tạo giá trị
-     *    thuộc tính cơ bản của nhân viên, sau đó yêu cầu người dùng nhập vào,
-     *    rồi check trong mảng xem bộ phận của quản lý đã có hay chưa, nếu rồi
-     *    thì tăng số người lên, nếu chưa thì tạo bộ phận mới. Cuối cùng khai
-     *    báo 1 object Manager và truyền dữ liệu vào, rồi thêm object vào mảng,
-     *    đồng thời thêm 1 bộ phận mới vào mảng, nếu có.
+     * dùng để thêm nhân viên ở cấp quản lý. Đầu tiên khởi tạo giá trị
+     * thuộc tính cơ bản của nhân viên, sau đó yêu cầu người dùng nhập vào,
+     * rồi check trong mảng xem bộ phận của quản lý đã có hay chưa, nếu rồi
+     * thì tăng số người lên, nếu chưa thì tạo bộ phận mới. Cuối cùng khai
+     * báo 1 object Manager và truyền dữ liệu vào, rồi thêm object vào mảng,
+     * đồng thời thêm 1 bộ phận mới vào mảng, nếu có.
      */
 
     public static void addManager() {
         String id, name, department = "", entryDate;
-        int age, vacationDate, departmentID = 0 ;
+        int age, vacationDate, departmentID = 0;
         double coefficientSalary;
 
         System.out.println("Xin vui long nhap thong tin quan ly moi: ");
@@ -190,19 +192,19 @@ public class HumanResources {
         id = input.next();
         int position;
         do {
-        System.out.print("""
+            System.out.print("""
 
-                Chuc danh cua quan ly:
-                \t1. Business leader
-                \t2. Project leader
-                \t3. Technical leader
-                                
-                """);
-        position = input.nextInt();
+                    Chuc danh cua quan ly:
+                    \t1. Business leader
+                    \t2. Project leader
+                    \t3. Technical leader
+                                    
+                    """);
+            position = input.nextInt();
 
-        if (position > 3 && position < 1) {
-            System.out.println("Lua chon ban nhap khong hop le, xin vui long nhap lai");
-        }
+            if (position > 3 && position < 1) {
+                System.out.println("Lua chon ban nhap khong hop le, xin vui long nhap lai");
+            }
 
         } while (position > 3 && position < 1);
         System.out.print("Bo phan lam viec: ");
@@ -222,7 +224,8 @@ public class HumanResources {
             // Nếu checkDepartmentIncrease = false thì yêu cầu nhập mã bộ phận và tạo bộ phận mới
             System.out.print("Xin vui long nhap ma bo phan: ");
             departmentID = input.nextInt();
-            Department departmentObj = new Department(department, departmentID);
+            int departmentEmployeesNumber = 1;
+            Department departmentObj = new Department(department, departmentID, departmentEmployeesNumber);
             departmentArr.add(departmentObj);
         }
 
@@ -242,13 +245,13 @@ public class HumanResources {
 
     /**
      * - Hàm addEmployee(): thêm nhân viên mới, là 1 phần của hàm addNewPerson,
-     *    dùng để thêm nhân viên thông thường. Đầu tiên khởi tạo giá trị
-     *    thuộc tính cơ bản của nhân viên, sau đó yêu cầu người dùng nhập vào,
-     *    rồi check trong mảng xem bộ phận của nhân viên đã có hay chưa, nếu rồi
-     *    thì tăng số người lên, nếu chưa thì tạo bộ phận mới. Cuối cùng khai
-     *    báo 1 object Employee và truyền dữ liệu vào, rồi thêm object vào mảng,
-     *    đồng thời thêm 1 bộ phận mới vào mảng, nếu có.
-     * */
+     * dùng để thêm nhân viên thông thường. Đầu tiên khởi tạo giá trị
+     * thuộc tính cơ bản của nhân viên, sau đó yêu cầu người dùng nhập vào,
+     * rồi check trong mảng xem bộ phận của nhân viên đã có hay chưa, nếu rồi
+     * thì tăng số người lên, nếu chưa thì tạo bộ phận mới. Cuối cùng khai
+     * báo 1 object Employee và truyền dữ liệu vào, rồi thêm object vào mảng,
+     * đồng thời thêm 1 bộ phận mới vào mảng, nếu có.
+     */
 
     public static void addEmployee() {
         String id, name, department = "", entryDate;
@@ -280,8 +283,10 @@ public class HumanResources {
             // Nếu checkDepartmentIncrease = false thì yêu cầu nhập mã bộ phận và tạo bộ phận mới
             System.out.print("Xin vui long nhap ma bo phan: ");
             departmentID = input.nextInt();
-            Department departmentObj = new Department(department, departmentID);
+            int departmentEmployeesNumber = 1;
+            Department departmentObj = new Department(department, departmentID, departmentEmployeesNumber);
             departmentArr.add(departmentObj);
+
         }
 
         System.out.print("Xin vui long nhap he so luong: ");
@@ -304,7 +309,7 @@ public class HumanResources {
 
     /**
      * - Hàm addNewPerson(): đơn giản là in Menu gọi hàm thêm nhân viên,
-     *    quản lý.
+     * quản lý.
      */
 
     public static void addNewPerson() {
@@ -328,15 +333,15 @@ public class HumanResources {
 
     /**
      * - Hàm findEmployee(): tìm thông tin nhân viên qua tên/ID
-     *    Đầu tiên hỏi người dùng xem muốn tìm nhân viên theo ID
-     *    hay theo tên, sau khi người dùng chọn xong sử dụng
-     *    switch case để tìm. Nếu tìm theo tên thì sẽ thu tên nhân
-     *    viên vào 1 biến tạm, sau đó check xem biến đó có khớp với tên
-     *    nào trong mảng không. Nếu trùng thì in thông tin bằng hàm
-     *    displayInformation(). Còn nếu tìm theo id thì cũng thu ID
-     *    vào 1 biến tạm khác, sau đó so sánh với các phần tử trong
-     *    mảng, nếu trùng thì in ra thông tin bằng hàm
-     *    displayInformation().
+     * Đầu tiên hỏi người dùng xem muốn tìm nhân viên theo ID
+     * hay theo tên, sau khi người dùng chọn xong sử dụng
+     * switch case để tìm. Nếu tìm theo tên thì sẽ thu tên nhân
+     * viên vào 1 biến tạm, sau đó check xem biến đó có khớp với tên
+     * nào trong mảng không. Nếu trùng thì in thông tin bằng hàm
+     * displayInformation(). Còn nếu tìm theo id thì cũng thu ID
+     * vào 1 biến tạm khác, sau đó so sánh với các phần tử trong
+     * mảng, nếu trùng thì in ra thông tin bằng hàm
+     * displayInformation().
      */
 
     public static void findEmployee() {
@@ -371,10 +376,10 @@ public class HumanResources {
 
     /**
      * - Hàm main: đơn giản là gọi Menu chọn chức năng,
-     *    sau đó dùng switch case để tuỳ chức năng gọi
-     *    hàm cho đúng, nếu không hợp lệ (ngoài giới
-     *    hạn 1-8) thì mời người dùng nhập lại do dùng
-     *    hàm do-while
+     * sau đó dùng switch case để tuỳ chức năng gọi
+     * hàm cho đúng, nếu không hợp lệ (ngoài giới
+     * hạn 1-8) thì mời người dùng nhập lại do dùng
+     * hàm do-while
      */
 
     public static void main(String[] args) {
@@ -389,7 +394,8 @@ public class HumanResources {
                 case 5 -> findEmployee();
                 case 6 -> showDecreaseSalary();
                 case 7 -> showIncreaseSalary();
-                case 8 -> {}
+                case 8 -> {
+                }
                 default -> System.out.println("Lua chon ban nhap khong hop le, xin vui long nhap lai!");
             }
         } while (choice != 8);
