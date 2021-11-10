@@ -29,27 +29,30 @@ import java.util.*;
 
 public class HumanResources {
 
-    /* - Dòng 39 khai báo object Scanner tên là input
-    *  - Dòng 40 tạo ArrayList kiểu Staff, tên staffArr
-    *  - Dòng 41 tạo ArrayList kiểu Department, tên departmentArr
+    /* - Dòng 37 khai báo object Scanner tên là input
+    *  - Dòng 38 tạo ArrayList kiểu Staff, tên staffArr
+    *  - Dòng 39 tạo ArrayList kiểu Department, tên departmentArr
     * */
 
     public static final Scanner input = new Scanner(System.in).useLocale(Locale.US);
     public static final ArrayList<Staff> staffArr = new ArrayList<>();
     public static final ArrayList<Department> departmentArr = new ArrayList<>();
 
-     /* - Hàm clearScreen() dùng để xoá màn hình
-     *  - Hàm featureMenu dùng để in Menu chọn chức năng, sau đó trả
-     *    về lựa chọn người dùng nhập, dùng vòng lặp do-while để khi
-     *    nhập lựa chọn quá giới hạn (giới hạn: 0 < lựa chọn < 9) thì
-     *    lặp lại bảng chọn
-     * */
+     /**
+      * - Hàm clearScreen() dùng để xoá màn hình
+     */
 
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
 
+    /**
+     * - Hàm featureMenu() dùng để in Menu chọn chức năng, sau đó trả
+     *   về lựa chọn người dùng nhập, dùng vòng lặp do-while để khi
+     *   nhập lựa chọn quá giới hạn (giới hạn: 0 < lựa chọn < 9) thì
+     *   lặp lại bảng chọn.
+     */
 
     public static int featureMenu() {
 
@@ -81,7 +84,8 @@ public class HumanResources {
         return choice;
     }
 
-    /** - Hàm showEmployee(): chức năng 1, hiển thị toàn bộ nhân viên
+    /**
+     * - Hàm showEmployee(): chức năng 1, hiển thị toàn bộ nhân viên
      *    và thông tin nhân viên dùng vòng lặp for để duyệt mảng, sau
      *    đó dùng hàm displayInformation().
      * */
@@ -124,7 +128,8 @@ public class HumanResources {
         }
     }
 
-    /** - Hàm showDepartmentEmployee(): chức năng 3, hiển thị toàn bộ
+    /**
+     * - Hàm showDepartmentEmployee(): chức năng 3, hiển thị toàn bộ
      *    thông tin nhân viên được xếp theo nhóm các bộ phận sau đó
      *    dùng vòng lặp for để duyệt mảng bộ phận, tiếp theo check
      *    xem thử tên bộ phận đã có ở mảng departmentArr có trùng
@@ -160,7 +165,8 @@ public class HumanResources {
         }
     }
 
-    /** - Hàm addManager(): thêm quản lý mới, là 1 phần của hàm addNewPerson,
+    /**
+     * - Hàm addManager(): thêm quản lý mới, là 1 phần của hàm addNewPerson,
      *    dùng để thêm nhân viên ở cấp quản lý. Đầu tiên khởi tạo giá trị
      *    thuộc tính cơ bản của nhân viên, sau đó yêu cầu người dùng nhập vào,
      *    rồi check trong mảng xem bộ phận của quản lý đã có hay chưa, nếu rồi
@@ -195,14 +201,18 @@ public class HumanResources {
         System.out.print("Bo phan lam viec: ");
         department = input.next();
         boolean checkDepartmentIncrease = false;
+
+        // Check xem tên bộ phận vừa rồi có trùng với phần tử nào trong mảng không
         for (Department value : departmentArr) {
             if (value.getDepartmentName().equals(department)) {
+                // Nếu trùng thì tăng người trong bộ phận và checkDepartmentIncrease = true
                 value.increaseEmployeesNumber();
                 checkDepartmentIncrease = true;
             }
         }
 
         if (!checkDepartmentIncrease) {
+            // Nếu checkDepartmentIncrease = false thì yêu cầu nhập mã bộ phận và tạo bộ phận mới
             System.out.print("Xin vui long nhap ma bo phan: ");
             departmentID = input.nextInt();
             departmentObj = new Department(department, departmentID);
@@ -223,7 +233,8 @@ public class HumanResources {
     }
 
 
-    /** - Hàm addEmployee(): thêm nhân viên mới, là 1 phần của hàm addNewPerson,
+    /**
+     * - Hàm addEmployee(): thêm nhân viên mới, là 1 phần của hàm addNewPerson,
      *    dùng để thêm nhân viên thông thường. Đầu tiên khởi tạo giá trị
      *    thuộc tính cơ bản của nhân viên, sau đó yêu cầu người dùng nhập vào,
      *    rồi check trong mảng xem bộ phận của nhân viên đã có hay chưa, nếu rồi
@@ -320,7 +331,7 @@ public class HumanResources {
      *    vào 1 biến tạm khác, sau đó so sánh với các phần tử trong
      *    mảng, nếu trùng thì in ra thông tin bằng hàm
      *    displayInformation().
-     * */
+     */
 
     public static void findEmployee() {
         System.out.println("Ban muon tim nhan vien theo ID hay ten?\n ID: 1\n Ten: 2");
@@ -358,7 +369,7 @@ public class HumanResources {
      *    hàm cho đúng, nếu không hợp lệ (ngoài giới
      *    hạn 1-8) thì mời người dùng nhập lại do dùng
      *    hàm do-while
-     * */
+     */
 
     public static void main(String[] args) {
         int choice;
