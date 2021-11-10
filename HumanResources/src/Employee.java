@@ -54,7 +54,7 @@ public class Employee extends Staff implements ICalculator {
         System.out.println("Bo phan lam viec: " + this.department);
         System.out.println("Ngay vao lam viec [dd/mm/yyyy]: " + this.entryDate);
         System.out.println("So ngay nghi: " + this.vacationDate);
-        System.out.println(String.format("Luong: %.1f", calculateSalary()));
+        System.out.printf("Luong: %.1f%n", calculateSalary());
     }
 
 

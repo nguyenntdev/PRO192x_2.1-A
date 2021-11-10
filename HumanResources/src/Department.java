@@ -16,7 +16,8 @@ public class Department {
      */
 
     private final String departmentName;
-    private int departmentEmployeesNumber, departmentID;
+    private int departmentEmployeesNumber;
+    private final int departmentID;
 
     /**
      * - Constructor Department(): lấy input của người dùng

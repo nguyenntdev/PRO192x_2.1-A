@@ -179,8 +179,8 @@ public class HumanResources {
      */
 
     public static void addManager() {
-        String id, name, department = "", entryDate;
-        int age, vacationDate, departmentID = 0;
+        String id, name, department, entryDate;
+        int age, vacationDate, departmentID;
         double coefficientSalary;
 
         System.out.println("Xin vui long nhap thong tin quan ly moi: ");
@@ -191,22 +191,16 @@ public class HumanResources {
         System.out.print("Ma quan ly: ");
         id = input.next();
         int position;
-        do {
-            System.out.print("""
+        System.out.print("""
 
-                    Chuc danh cua quan ly:
-                    \t1. Business leader
-                    \t2. Project leader
-                    \t3. Technical leader
-                                    
-                    """);
-            position = input.nextInt();
+                Chuc danh cua quan ly:
+                \t1. Business leader
+                \t2. Project leader
+                \t3. Technical leader
+                                
+                """);
+        position = input.nextInt();
 
-            if (position > 3 && position < 1) {
-                System.out.println("Lua chon ban nhap khong hop le, xin vui long nhap lai");
-            }
-
-        } while (position > 3 && position < 1);
         System.out.print("Bo phan lam viec: ");
         department = input.next();
         boolean checkDepartmentIncrease = false;
@@ -254,8 +248,8 @@ public class HumanResources {
      */
 
     public static void addEmployee() {
-        String id, name, department = "", entryDate;
-        int age, vacationDate, departmentID = 0, overtimeHours;
+        String id, name, department, entryDate;
+        int age, vacationDate, departmentID, overtimeHours;
 
         double coefficientSalary;
 
@@ -353,10 +347,17 @@ public class HumanResources {
                 System.out.print("Xin vui long nhap ten nhan vien: ");
                 String staffName = input.nextLine();
 
+                boolean staffEqual = false;
                 for (Staff staff : staffArr) {
                     if (staffName.equals(staff.name)) {
                         staff.displayInformation();
+                        System.out.print("\n");
+                        staffEqual = true;
                     }
+                }
+
+                if (!staffEqual) {
+                    System.out.println("Khong tim thay nhan vien");
                 }
             }
 
@@ -364,10 +365,16 @@ public class HumanResources {
                 System.out.print("Xin vui long nhap ID nhan vien: ");
                 String staffID = input.nextLine();
 
+                boolean staffEqual = false;
                 for (Staff staff : staffArr) {
                     if (staffID.equals(staff.id)) {
                         staff.displayInformation();
+                        System.out.print("\n");
+                        staffEqual = true;
                     }
+                }
+                if (!staffEqual) {
+                    System.out.println("Khong tim thay nhan vien");
                 }
             }
 
