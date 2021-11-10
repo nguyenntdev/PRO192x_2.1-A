@@ -412,6 +412,7 @@ public class HumanResources {
         int choice = input.nextInt();
         input.nextLine();
         switch (choice) {
+            // Tìm nhân viên theo tên
         case 2 -> {
             System.out.print("Xin vui long nhap ten nhan vien: ");
             String staffName = input.nextLine();
@@ -439,6 +440,7 @@ public class HumanResources {
         }
 
 
+            // Tìm nhân viên theo ID
         case 1 -> {
             System.out.print("Xin vui long nhap ID nhan vien: ");
             String staffID = input.nextLine();
