@@ -1,4 +1,5 @@
-/** - Class abstract Staff, gồm các biến chung của
+/**
+ * - Class abstract Staff, gồm các biến chung của
  *    2 loại nhân viên: id, tên, bộ phận, ngày vào
  *    làm, tuổi, số ngày nghỉ, hệ số lương và hàm
  *    chung là in thông tin nhân viên

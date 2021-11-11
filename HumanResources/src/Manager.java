@@ -56,7 +56,8 @@ public class Manager extends Staff implements ICalculator {
         position = position2;
     }
 
-    /** - Hàm displayInfomation(): in thông tin quản lý
+    /**
+     * - Hàm displayInfomation(): in thông tin quản lý
      *    như tên, tuổi, chức vụ, lương...v.v.
      * */
 
