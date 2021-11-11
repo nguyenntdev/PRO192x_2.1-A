@@ -55,6 +55,12 @@ public class HumanResources {
 
     }
 
+    /**
+     * - Hàm enterToExit(): dùng để thu input của người dùng
+     *   để xác nhận thoát, nếu nhấn 0 và enter thì thoát
+     *   về menu
+     * */
+
     public static void enterToExit() {
         int i = 0;
         do {
