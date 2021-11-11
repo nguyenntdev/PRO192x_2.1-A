@@ -51,7 +51,8 @@ public class LuckyNumber {
      * - Rồi dùng vòng lặp, yêu cầu người dùng nhập số đoán và rồi
      * so sánh với số ngẫu nhiên đã tạo để đưa ra thông báo cho người
      * dùng
-     * - Nếu = số may mắn thì chúc mừng, nếu không continue vòng lặp
+     * - Nếu = số may mắn thì chúc mừng, break
+     * , nếu không continue vòng lặp
      */
 
     static int play() {
