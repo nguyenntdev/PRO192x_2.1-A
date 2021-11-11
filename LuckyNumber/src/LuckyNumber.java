@@ -73,7 +73,12 @@ public class LuckyNumber {
             playerNumber = input.nextInt();
             guessTime++;
 
-            if (playerNumber > randomNumber) {
+
+            if (playerNumber == randomNumber) {
+                System.out.println("Chuc mung ban da doan dung sau " + guessTime + " lan du doan!");
+            }
+
+            else if (playerNumber > randomNumber) {
                 System.out.println("\nSo may man nho hon so du doan cua ban!\n");
             }
 
@@ -81,9 +86,7 @@ public class LuckyNumber {
                 System.out.println("\nSo may man lon hon so du doan cua ban!\n");
             }
 
-            if (playerNumber == randomNumber) {
-                System.out.println("Chuc mung ban da doan dung sau " + guessTime + " lan du doan!");
-            }
+
         } while (playerNumber != randomNumber);
 
         return guessTime;
@@ -121,7 +124,7 @@ public class LuckyNumber {
      * - Hàm main: vòng lặp xử lý và gọi các hàm...v.v.
      * - Đầu tiên khởi tạo biến guessTime, bestGame,
      * playChoice, totalGame, totalGuessTime.
-     * - Khởi tạo object kiểu scanner thu input người dùng
+     * - Khởi tạo object     kiểu scanner thu input người dùng
      * - Sau đó tạo vòng lặp do-while, đầu tiên tăng tổng số
      * lượt chơi, sau đó gán biến guessTime là giá trị trả
      * về từ hàm play và gọi hàm play, sau đó so sánh nếu
@@ -130,6 +133,7 @@ public class LuckyNumber {
      * đó hỏi người dùng muốn chơi lại không
      * - Lặp đến khi người dùng từ chối chơi lại
      * - Báo cáo KQ
+     *
      */
 
     public static void main(String[] args) {
