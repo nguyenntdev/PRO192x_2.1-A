@@ -36,8 +36,9 @@ import java.io.IOException;
 public class HumanResources {
 
     /*
-     * - Dòng 37 khai báo object Scanner tên là input - Dòng 38 tạo ArrayList kiểu
-     * Staff, tên staffArr - Dòng 39 tạo ArrayList kiểu Department, tên
+     * - Dòng 45 khai báo object Scanner tên là input
+     * - Dòng 46 tạo ArrayList kiểu Staff, tên staffArr
+     * - Dòng 47 tạo ArrayList kiểu Department, tên
      * departmentArr
      */
 
