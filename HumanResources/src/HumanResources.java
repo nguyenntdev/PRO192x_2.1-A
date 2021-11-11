@@ -57,7 +57,7 @@ public class HumanResources {
 
     /**
      * - Hàm enterToExit(): dùng để thu input của người dùng
-     *   để xác nhận thoát, nếu nhấn 0 và enter thì thoát
+     *   để xác nhận quay về, nếu nhấn 0 và enter thì quay
      *   về menu
      * */
 
