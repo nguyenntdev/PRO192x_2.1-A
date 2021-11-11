@@ -59,21 +59,25 @@ public class LuckyNumber {
         int guessTime = 1;
 
         Scanner input = new Scanner(System.in);
-        int randomNumber = (int) Math.floor(Math.random() * (max - 0 + 1));
+        int randomNumber = (int) Math.floor(Math.random() * (max + 1));
         clearScreen();
         showSeperator();
         showBrand();
         showSeperator();
+        System.out.println(randomNumber);
         System.out.print("Xin vui long nhap so ban doan: ");
 
         int playerNumber = input.nextInt();
-
+        if (playerNumber == randomNumber) {
+            System.out.println("Chuc mung ban da doan dung sau " + guessTime + " lan du doan!");
+        }
+        else {
         do {
             if (playerNumber > randomNumber) {
                 System.out.println("\nSo may man nho hon so du doan cua ban!\n");
             }
 
-            else if (playerNumber < randomNumber) {
+            else {
                 System.out.println("\nSo may man lon hon so du doan cua ban!\n");
             }
 
@@ -85,7 +89,7 @@ public class LuckyNumber {
                 System.out.println("Chuc mung ban da doan dung sau " + guessTime + " lan du doan!");
             }
         } while (playerNumber != randomNumber);
-
+        }
         return guessTime;
     }
 
