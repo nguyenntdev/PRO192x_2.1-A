@@ -48,16 +48,17 @@ public class LuckyNumber {
      * - Đầu tiên khởi tạo biến guessTime kiểu int = 1
      * - Sau đó tạo số ngẫu nhiên dùng Math.random
      * - Rồi in ra dấu phân cách, tên trò chơi, thông báo...v.v.
-     * - Rồi lưu input của người dùng vào 1 biến tạm rồi dùng vòng lặp,
+     * - Rồi dùng vòng lặp, yêu cầu người dùng nhập số đoán và rồi
      * so sánh với số ngẫu nhiên đã tạo để đưa ra thông báo cho người
      * dùng
-     * - Sau đó nhắc người dùng nhập lại và tăng số lần đoán
      * - Nếu = số may mắn thì chúc mừng, nếu không continue vòng lặp
      */
 
     static int play() {
-        int guessTime = 0;
 
+        // Đầu tiên khởi tạo các biến, object và dùng các hàm in brand, sep...
+
+        int guessTime = 0;
         Scanner input = new Scanner(System.in);
         int randomNumber = (int) Math.floor(Math.random() * (max + 1));
         clearScreen();
@@ -68,20 +69,26 @@ public class LuckyNumber {
 
 
         int playerNumber;
+
         do {
+            // Đầu tiên yêu cầu người dùng nhập số đoán
+
             System.out.print("Xin vui long nhap so ban doan: ");
             playerNumber = input.nextInt();
             guessTime++;
 
 
+            // Nếu số đoán = ngẫu nhiên thì chúc mừng, KT vòng lặp
             if (playerNumber == randomNumber) {
                 System.out.println("Chuc mung ban da doan dung sau " + guessTime + " lan du doan!");
             }
 
+            // Nếu số đoán > ngẫu nhiên thì thông báo
             else if (playerNumber > randomNumber) {
                 System.out.println("\nSo may man nho hon so du doan cua ban!\n");
             }
 
+            // Nếu số đoán < ngẫu nhiên thì thông báo
             else {
                 System.out.println("\nSo may man lon hon so du doan cua ban!\n");
             }
