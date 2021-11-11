@@ -56,7 +56,7 @@ public class LuckyNumber {
      */
 
     static int play() {
-        int guessTime = 1;
+        int guessTime = 0;
 
         Scanner input = new Scanner(System.in);
         int randomNumber = (int) Math.floor(Math.random() * (max + 1));
@@ -65,12 +65,14 @@ public class LuckyNumber {
         showBrand();
         showSeperator();
         System.out.println(randomNumber);
-        System.out.print("Xin vui long nhap so ban doan: ");
 
-        int playerNumber = input.nextInt();
-        guessTime++;
-        
+
+        int playerNumber;
         do {
+            System.out.print("Xin vui long nhap so ban doan: ");
+            playerNumber = input.nextInt();
+            guessTime++;
+
             if (playerNumber > randomNumber) {
                 System.out.println("\nSo may man nho hon so du doan cua ban!\n");
             }
@@ -131,7 +133,7 @@ public class LuckyNumber {
      */
 
     public static void main(String[] args) {
-        int guessTime = 1, bestGame = Integer.MAX_VALUE;
+        int guessTime = 0, bestGame = Integer.MAX_VALUE;
         String playChoice;
         float totalGame = 0, totalGuessTime = 0;
         Scanner input = new Scanner(System.in);
