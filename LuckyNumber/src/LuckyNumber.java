@@ -45,7 +45,7 @@ public class LuckyNumber {
 
     /**
      * - Hàm play: phần chính của chương trình
-     * - Đầu tiên khởi tạo biến guessTime kiểu int = 1
+     * - Đầu tiên khởi tạo biến guessTime kiểu int = 0
      * - Sau đó tạo số ngẫu nhiên dùng Math.random
      * - Rồi in ra dấu phân cách, tên trò chơi, thông báo...v.v.
      * - Rồi dùng vòng lặp, yêu cầu người dùng nhập số đoán và rồi
