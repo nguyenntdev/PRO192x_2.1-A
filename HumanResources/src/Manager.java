@@ -47,15 +47,9 @@ public class Manager extends Staff implements ICalculator {
      *    vụ
      * */
 
-    Manager(String id2, String name2, String department2, String entryDate2, int age2, int vacationDate2, double coefficientSalary2, int position2) {
-        id = id2;
-        name = name2;
-        department = department2;
-        entryDate = entryDate2;
-        age = age2;
-        vacationDate = vacationDate2;
-        coefficientSalary = coefficientSalary2;
-        position = position2;
+    public Manager(String id, String name, String department, String entryDate, int age, int vacationDate, double coefficientSalary, int position) {
+        super(id, name, department, entryDate, age, vacationDate, coefficientSalary);
+        this.position = position;
     }
 
     /**

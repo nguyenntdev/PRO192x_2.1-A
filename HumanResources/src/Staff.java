@@ -67,4 +67,14 @@ abstract class Staff {
     public void setCoefficientSalary(double coefficientSalary) {
         this.coefficientSalary = coefficientSalary;
     }
+
+    public Staff(String id, String name, String department, String entryDate, int age, int vacationDate, double coefficientSalary) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+        this.entryDate = entryDate;
+        this.age = age;
+        this.vacationDate = vacationDate;
+        this.coefficientSalary = coefficientSalary;
+    }
 }
