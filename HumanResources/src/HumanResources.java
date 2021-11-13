@@ -28,10 +28,10 @@
  * 6. HumanResources.java
 */
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
-import java.io.IOException;
 
 public class HumanResources {
 
@@ -63,6 +63,7 @@ public class HumanResources {
 
     public static void enterToExit() {
         int i = 0;
+        //noinspection LoopConditionNotUpdatedInsideLoop
         do {
             int close = input.nextInt();
             if (close == 0)
@@ -137,8 +138,10 @@ public class HumanResources {
      */
 
     public static void showDecreaseSalary() {
+        // tìm hiểu thêm về lambda expression
+        // tham số đầu vào là 1 comparator
         staffArr.sort((staff1,
-                staff2) -> (int) (((ICalculator) staff2).calculateSalary() - ((ICalculator) staff1).calculateSalary()));
+                       staff2) -> (int) (((ICalculator) staff2).calculateSalary() - ((ICalculator) staff1).calculateSalary()));
         System.out.printf(
                 """
                         ==================================================================================================================================
@@ -197,22 +200,25 @@ public class HumanResources {
         for (Department department : departmentArr) {
             System.out
                     .print("""
-                        ==================================================================================================================================\n""");
+                            ==================================================================================================================================
+                            """);
             System.out.printf("| %-40s | %-40s | %-40s |\n", "Ten bo phan", "ID bo phan", "So nhan vien");
             System.out.println(department);
             System.out
                     .print("""
-                        ==================================================================================================================================\n""");
+                            ==================================================================================================================================
+                            """);
 
             for (Staff staff : staffArr) {
-                if (department.getDepartmentName().equals(staff.department)) {
+                if (department.getDepartmentName().equals(staff.department())) {
                     staff.displayInformation();
                 }
             }
         }
         System.out
                 .print("""
-                        ==================================================================================================================================\n""");
+                        ==================================================================================================================================
+                        """);
 
         System.out.println("Nhan 0 va Enter de quay lai menu.");
 
@@ -228,7 +234,8 @@ public class HumanResources {
     public static void showDepartment() {
         System.out
                 .print("""
-                        ==================================================================================================================================\n""");
+                        ==================================================================================================================================
+                        """);
         System.out.printf("| %-40s | %-40s | %-40s |\n", "Ten bo phan", "ID bo phan", "So nhan vien");
         for (Department department : departmentArr) {
             System.out.println(department);
@@ -236,7 +243,8 @@ public class HumanResources {
 
         System.out
                 .print("""
-                        ==================================================================================================================================\n""");
+                        ==================================================================================================================================
+                        """);
         System.out.println("Nhan 0 va Enter de quay lai menu.");
 
         enterToExit();
@@ -431,8 +439,9 @@ public class HumanResources {
                             | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-16s |
                             """,
                     "Ten", "Tuoi", "ID", "Bo phan", "Ngay vao lam", "So ngay nghi", "Luong", "Gio lam them", "Chuc vu");
+
             for (Staff staff : staffArr) {
-                if (staffName.equals(staff.name)) {
+                if (staffName.equals(staff.name())) {
                     staff.displayInformation();
                     staffEqual = true;
                 }
@@ -443,7 +452,8 @@ public class HumanResources {
             }
             System.out
                     .print("""
-                        ==================================================================================================================================\n""");
+                            ==================================================================================================================================
+                            """);
         }
 
 
@@ -460,7 +470,7 @@ public class HumanResources {
                             """,
                     "Ten", "Tuoi", "ID", "Bo phan", "Ngay vao lam", "So ngay nghi", "Luong", "Gio lam them", "Chuc vu");
             for (Staff staff : staffArr) {
-                if (staffID.equals(staff.id)) {
+                if (staffID.equals(staff.id())) {
                     staff.displayInformation();
                     staffEqual = true;
                 }
@@ -472,7 +482,8 @@ public class HumanResources {
 
             System.out
                     .print("""
-                        ==================================================================================================================================\n""");
+                            ==================================================================================================================================
+                            """);
         }
 
         }

@@ -66,8 +66,6 @@ public class LuckyNumber {
         showSeperator();
         showBrand();
         showSeperator();
-        System.out.println(randomNumber);
-
 
         int playerNumber;
 

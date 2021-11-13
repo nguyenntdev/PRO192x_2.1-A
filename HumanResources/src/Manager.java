@@ -21,14 +21,19 @@ public class Manager extends Staff implements ICalculator {
     private String positionString;
     private double responsibilitySalary;
 
+    public String id = id(), name = name(), department = department(), entryDate = entryDate();
+    public int age = age(), vacationDate = vacationDate();
+    public double coefficientSalary = coefficientSalary();
+
+
     /**
      * - Hàm calculateSalary(), return kết quả dạng double.
-     *    Đầu tiên dùng switch case để xem thử chức vụ là gì
-     *    => lương trách nhiệm là bao nhiêu. Sau đó return về
-     *    kết quả công thức HSL * 5000000 + lương trách nhiệm.
-     * */
+     * Đầu tiên dùng switch case để xem thử chức vụ là gì
+     * => lương trách nhiệm là bao nhiêu. Sau đó return về
+     * kết quả công thức HSL * 5000000 + lương trách nhiệm.
+     */
 
-     public double calculateSalary() {
+    public double calculateSalary() {
         switch (position) {
             case 1 -> responsibilitySalary = 8000000;
             case 2 -> responsibilitySalary = 5000000;
