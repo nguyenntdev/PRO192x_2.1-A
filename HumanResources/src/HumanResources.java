@@ -28,7 +28,6 @@
  * 6. HumanResources.java
 */
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
@@ -50,9 +49,9 @@ public class HumanResources {
      * - Hàm clearScreen() dùng để xoá màn hình
      */
 
-    public static void clearScreen() throws IOException, InterruptedException {
-        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-
+    public static void clearScreen()  {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
     /**
@@ -77,7 +76,7 @@ public class HumanResources {
      * (giới hạn: 0 < lựa chọn < 9) thì lặp lại bảng chọn.
      */
 
-    public static int featureMenu() throws IOException, InterruptedException {
+    public static int featureMenu() {
 
         int choice;
 
@@ -114,6 +113,7 @@ public class HumanResources {
      */
 
     public static void showEmployee() {
+        clearScreen();
         System.out.printf(
                 """
                         ==================================================================================================================================
@@ -138,6 +138,7 @@ public class HumanResources {
      */
 
     public static void showDecreaseSalary() {
+        clearScreen();
         // tìm hiểu thêm về lambda expression
         // tham số đầu vào là 1 comparator
         staffArr.sort((staff1,
@@ -167,6 +168,7 @@ public class HumanResources {
      * mảng bằng list.sort, sau đó dùng vòng lặp for để duyệt mảng
      */
     public static void showIncreaseSalary() {
+        clearScreen();
         staffArr.sort((staff1,
                 staff2) -> (int) (((ICalculator) staff1).calculateSalary() - ((ICalculator) staff2).calculateSalary()));
         System.out.printf(
@@ -197,6 +199,7 @@ public class HumanResources {
      */
 
     public static void showDepartmentEmployee() {
+        clearScreen();
         for (Department department : departmentArr) {
             System.out
                     .print("""
@@ -232,6 +235,7 @@ public class HumanResources {
      */
 
     public static void showDepartment() {
+        clearScreen();
         System.out
                 .print("""
                         ==================================================================================================================================
@@ -260,6 +264,7 @@ public class HumanResources {
      */
 
     public static void addManager() {
+
         String id, name, department, entryDate;
         int age, vacationDate, departmentID;
         double coefficientSalary;
@@ -315,9 +320,7 @@ public class HumanResources {
         Manager manager = new Manager(id, name, department, entryDate, age, vacationDate, coefficientSalary, position);
 
         staffArr.add(manager);
-        System.out.println("Nhan 0 va Enter de quay lai menu.");
 
-        enterToExit();
     }
 
     /**
@@ -381,9 +384,7 @@ public class HumanResources {
                 overtimeHours);
 
         staffArr.add(employee);
-        System.out.println("Nhan 0 va Enter de quay lai menu.");
 
-        enterToExit();
     }
 
     /**
@@ -391,6 +392,7 @@ public class HumanResources {
      */
 
     public static void addNewPerson() {
+        clearScreen();
         int choice;
         do {
             System.out.println("""
@@ -401,8 +403,10 @@ public class HumanResources {
             if (!(choice == 1) && !(choice == 2)) {
                 System.out.println("Lua chon ban nhap khong hop le, xin vui long nhap lai\n");
             } else if (choice == 1) {
+                clearScreen();
                 addEmployee();
             } else {
+                clearScreen();
                 addManager();
             }
 
@@ -423,12 +427,14 @@ public class HumanResources {
      */
 
     public static void findEmployee() {
+        clearScreen();
         System.out.println("Ban muon tim nhan vien theo ID hay ten?\n ID: 1\n Ten: 2");
         int choice = input.nextInt();
         input.nextLine();
         switch (choice) {
             // Tìm nhân viên theo tên
         case 2 -> {
+            clearScreen();
             System.out.print("Xin vui long nhap ten nhan vien: ");
             String staffName = input.nextLine();
 
@@ -448,7 +454,7 @@ public class HumanResources {
             }
 
             if (!staffEqual) {
-                System.out.printf("| %-130s |", "Khong tim thay nhan vien");
+                System.out.printf("| %-126s |\n", "Khong tim thay nhan vien\n");
             }
             System.out
                     .print("""
@@ -459,6 +465,7 @@ public class HumanResources {
 
             // Tìm nhân viên theo ID
         case 1 -> {
+            clearScreen();
             System.out.print("Xin vui long nhap ID nhan vien: ");
             String staffID = input.nextLine();
 
@@ -477,7 +484,7 @@ public class HumanResources {
             }
 
             if (!staffEqual) {
-                System.out.printf("| %-130s |", "Khong tim thay nhan vien");
+                System.out.printf("| %-126s |\n", "Khong tim thay nhan vien");
             }
 
             System.out
@@ -498,7 +505,7 @@ public class HumanResources {
      * người dùng nhập lại do dùng hàm do-while
      */
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) {
         int choice;
         do {
             clearScreen();
