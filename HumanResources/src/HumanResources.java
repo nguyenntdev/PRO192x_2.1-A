@@ -210,7 +210,7 @@ public class HumanResources {
                             """);
 
             for (Staff staff : staffArr) {
-                if (department.getDepartmentName().equals(staff.department())) {
+                if (department.getDepartmentName().equals(staff.getDepartment())) {
                     staff.displayInformation();
                 }
             }
@@ -441,7 +441,7 @@ public class HumanResources {
                     "Ten", "Tuoi", "ID", "Bo phan", "Ngay vao lam", "So ngay nghi", "Luong", "Gio lam them", "Chuc vu");
 
             for (Staff staff : staffArr) {
-                if (staffName.equals(staff.name())) {
+                if (staffName.equals(staff.getName())) {
                     staff.displayInformation();
                     staffEqual = true;
                 }
@@ -470,7 +470,7 @@ public class HumanResources {
                             """,
                     "Ten", "Tuoi", "ID", "Bo phan", "Ngay vao lam", "So ngay nghi", "Luong", "Gio lam them", "Chuc vu");
             for (Staff staff : staffArr) {
-                if (staffID.equals(staff.id())) {
+                if (staffID.equals(staff.getId())) {
                     staff.displayInformation();
                     staffEqual = true;
                 }

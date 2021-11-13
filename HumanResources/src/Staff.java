@@ -6,37 +6,65 @@
  */
 
 abstract class Staff {
-    private String id, name, department, entryDate;
-    private int age, vacationDate;
-    private double coefficientSalary;
+    protected String id, name, department, entryDate;
+    protected int age, vacationDate;
+    protected double coefficientSalary;
 
     abstract void displayInformation();
 
-    public String id() {
+    public String getId() {
         return id;
     }
 
-    public String name() {
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
         return name;
     }
 
-    public String department() {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDepartment() {
         return department;
     }
 
-    public String entryDate() {
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getEntryDate() {
         return entryDate;
     }
 
-    public int age() {
+    public void setEntryDate(String entryDate) {
+        this.entryDate = entryDate;
+    }
+
+    public int getAge() {
         return age;
     }
 
-    public int vacationDate() {
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getVacationDate() {
         return vacationDate;
     }
 
-    public double coefficientSalary() {
+    public void setVacationDate(int vacationDate) {
+        this.vacationDate = vacationDate;
+    }
+
+    public double getCoefficientSalary() {
         return coefficientSalary;
+    }
+
+    public void setCoefficientSalary(double coefficientSalary) {
+        this.coefficientSalary = coefficientSalary;
     }
 }

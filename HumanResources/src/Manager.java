@@ -21,9 +21,6 @@ public class Manager extends Staff implements ICalculator {
     private String positionString;
     private double responsibilitySalary;
 
-    public String id = id(), name = name(), department = department(), entryDate = entryDate();
-    public int age = age(), vacationDate = vacationDate();
-    public double coefficientSalary = coefficientSalary();
 
 
     /**

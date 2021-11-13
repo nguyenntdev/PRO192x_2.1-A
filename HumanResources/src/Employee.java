@@ -13,9 +13,6 @@ public class Employee extends Staff implements ICalculator {
      */
 
     private final int overtimeHours;
-    public String id = id(), name = name(), department = department(), entryDate = entryDate();
-    public int age = age(), vacationDate = vacationDate();
-    public double coefficientSalary = coefficientSalary();
 
 
     /**
