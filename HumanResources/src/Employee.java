@@ -16,9 +16,9 @@ public class Employee extends Staff implements ICalculator {
 
 
     /**
-     * - Constructor Employee(): lấy DL của người dùng
-     * trong đó các DL cần lấy là ID, tên, bộ phận,
-     * ngày vào làm, tên, tuổi, ngày nghỉ, HSL.
+     * - Constructor Employee(): tạo Employee với
+     * các thông tin DL truyền vào, gồm ID, tên,
+     * bộ phận, ngày vào làm, tên, tuổi, ngày nghỉ, HSL.
      */
 
     public Employee(String id, String name, String department, String entryDate, int age, int vacationDate, double coefficientSalary, int overtimeHours) {

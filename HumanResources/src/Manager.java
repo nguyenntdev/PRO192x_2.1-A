@@ -41,8 +41,8 @@ public class Manager extends Staff implements ICalculator {
 
 
     /**
-     *  - Constructor Manager(): lấy DL của người dùng
-     *    trong đó các DL cần lấy là ID, tên, bộ phận,
+     *  - Constructor Manager(): tạo Manager với các
+     *    thông tin DL truyền vào, gồm ID, tên, bộ phận,
      *    ngày vào làm, tên, tuổi, ngày nghỉ, HSL, chức
      *    vụ
      * */
