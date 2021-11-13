@@ -58,7 +58,7 @@ public class Manager extends Staff implements ICalculator {
      * */
 
     @Override
-    void displayInformation() {
+    public void displayInformation() {
         switch (position) {
             case 1 -> positionString = "Business leader";
             case 2 -> positionString = "Project leader";

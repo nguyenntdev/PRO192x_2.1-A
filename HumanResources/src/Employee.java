@@ -41,7 +41,7 @@ public class Employee extends Staff implements ICalculator {
      */
 
     @Override
-    void displayInformation() {
+    public void displayInformation() {
         System.out.printf("| %-10s | %-10d | %-10s | %-10s | %-10s   | %-10d   | %-10.1f | %-10d   | %-16s |\n", this.name,
                 this.age, this.id, this.department, this.entryDate, this.vacationDate, this.calculateSalary(), this.overtimeHours, " ");
     }

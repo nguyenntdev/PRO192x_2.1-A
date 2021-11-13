@@ -11,7 +11,12 @@ abstract class Staff {
     protected int age, vacationDate;
     protected double coefficientSalary;
 
-    abstract void displayInformation();
+
+    /**
+     * Phương thức abstract displayInformation(): phục
+     * vụ việc hiển thị thông tin
+     * */
+    public abstract void displayInformation();
 
 
     // Getter và setter của các tên, tuổi, bộ phận, HSL, ngày vào làm, ngày nghỉ
