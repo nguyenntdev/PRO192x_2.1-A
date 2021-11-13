@@ -3,7 +3,7 @@
  * 2 loại nhân viên: id, tên, bộ phận, ngày vào
  * làm, tuổi, số ngày nghỉ, hệ số lương và hàm
  * chung là in thông tin nhân viên, sau đó tạo
- * các getter-setter cho các biến ấy.
+ * các getter-setter và constructor cho các biến ấy.
  */
 
 abstract class Staff {
@@ -12,6 +12,9 @@ abstract class Staff {
     protected double coefficientSalary;
 
     abstract void displayInformation();
+
+
+    // Getter và setter của các tên, tuổi, bộ phận, HSL, ngày vào làm, ngày nghỉ
 
     public String getId() {
         return id;
@@ -68,6 +71,12 @@ abstract class Staff {
     public void setCoefficientSalary(double coefficientSalary) {
         this.coefficientSalary = coefficientSalary;
     }
+
+    /**
+     * Constructor Staff():  hàm constructor của Staff với
+     * các thuộc tính đầu vào gồm id, tên, bộ phận, ngày
+     * vào làm, tuổi, ngày nghỉ, HSL
+     * */
 
     public Staff(String id, String name, String department, String entryDate, int age, int vacationDate, double coefficientSalary) {
         this.id = id;
